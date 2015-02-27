@@ -33,7 +33,7 @@
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="SplashScreenDelay" value="5000" />
     <preference name="ErrorUrl" value="" />
-    <preference name="BackgroundColor" value="0x000000" />
+    <preference name="BackgroundColor" value="#E27721" />
     <preference name="KeepRunning" value="true" />
     <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="DisallowOverscroll" value="true" />
