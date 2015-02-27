@@ -6,4 +6,16 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, $stateParams) {
     
+})
+
+.controller('DetailsCtrl', function($scope, $stateParams) {
+    
+})
+
+.controller('QuoteCtrl', function($scope, $stateParams) {
+    
+})
+
+.controller('BookCtrl', function($scope, $stateParams) {
+    
 });

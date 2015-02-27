@@ -1,0 +1,64 @@
+<ion-view view-title="Details">
+    <ion-content class="has-header padding">
+
+        <div class="button-bar">
+            <button class="button button-calm">Document</button>
+            <button class="button button-calm checked">Parcel</button>
+        </div>
+
+        <div class="list border-round shadow-bottom">
+            <div class="text-center">
+                <h4>Parcel Detail</h4>
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Description</span>
+                <input type="text">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Weight (kg)</span>
+                <input type="number">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Size (cm)</span>
+                <div class="row no-pad">
+                    <div class="col">
+                        <input type="number" placeholder="Length">
+                    </div>
+                    <div class="col">
+                        <input type="number" placeholder="Width">
+                    </div>
+                    <div class="col">
+                        <input type="number" placeholder="Height">
+                    </div>
+                </div>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Value (INR)</span>
+                <input type="text">
+            </label>
+        </div>
+
+        <div class="list border-round shadow-bottom" ng-show="">
+            <div class="text-center">
+                <h4>Parcel Detail</h4>
+            </div>
+            <label class="item item-input item-select">
+                <span class="input-label">Weight (gm)</span>
+                <select>
+                    <option value="250">250</option>
+                    <option value="500">500</option>
+                    <option value="750">750</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="2000">2000</option>
+                    <option value="2500">2500</option>
+                    <option value="3000">3000</option>
+                </select>
+            </label>
+        </div>
+
+        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details/quotes">Get Quotes</a>
+
+
+    </ion-content>
+</ion-view>

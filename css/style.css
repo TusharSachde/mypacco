@@ -1,5 +1,35 @@
 /* Empty. Add your own CSS if you like */
 
+@font-face {
+    font-family: 'Eurostile Demi';
+    src: url('Eurostile-Demi.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Hairline.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Bold.ttf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('Lato-Black.ttf');
+    font-weight: 800;
+}
 .button-bar .button.activated,
 .button.checked {
     border-bottom: 3px solid #E27721;
@@ -19,7 +49,9 @@
 }
 .from-to .col,
 .from-to h3,
-.from-to p {
+.from-to p,
+.row.no-pad,
+.no-pad .col {
     padding: 0;
     margin: 0;
 }
@@ -59,4 +91,28 @@
 }
 .from-to .col {
     position: relative;
+}
+.list.no-margin {
+    margin-bottom: 0;
+}
+.item-radio .item-content.item-thumbnail-left {
+    padding: 13px 35px 10px 103px;
+}
+.item-content.item-thumbnail-left>img {
+    top: 50% !important;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.small {
+    font-size: 10px;
+}
+.rating i {
+    color: #F9EE23;
+}
+.title {
+    font-family: 'Eurostile Demi';
+    line-height: 46px !important;
 }
