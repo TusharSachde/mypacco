@@ -20,7 +20,7 @@
     <preference name="orientation" value="portrait" />
     <preference name="android-installLocation" value="internalOnly" />
     <preference name="ErrorUrl" value="" />
-    <preference name="BackgroundColor" value="#000000" />
+    <preference name="BackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="default" />
     <preference name="KeepRunning" value="true" />
     <preference name="splash-screen-duration" value="3000" />
@@ -34,7 +34,7 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
 
     <icon src="img/icon.png" />
 
