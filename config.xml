@@ -15,26 +15,28 @@
     <gap:platform name="android" />
 
     <preference name="phonegap-version" value="3.6.3" />
-    <preference name="permissions" value="none" />
+  <preference name="orientation" value="potrait" />
     <preference name="fullscreen" value="false" />
-    <preference name="orientation" value="portrait" />
-    <preference name="android-installLocation" value="internalOnly" />
-    <preference name="ErrorUrl" value="" />
-    <preference name="BackgroundColor" value="#ffffff" />
-    <preference name="StatusBarStyle" value="default" />
-    <preference name="KeepRunning" value="true" />
-    <preference name="splash-screen-duration" value="3000" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="1000" />
-    <preference name="android-minSdkVersion" value="7" />
     <preference name="target-device" value="universal" />
-    <preference name="LoadUrlTimeoutValue" value="200000" />
-    <preference name="deployment-target" value="7.0" />
-    <preference name="webviewbounce" value="false" />
-    <preference name="UIWebViewBounce" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="true" />
+    <preference name="ios-statusbarstyle" value="default" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="EnableViewportScale" value="true" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="ErrorUrl" value="" />
+    <preference name="BackgroundColor" value="0x000000" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="BackupWebStorage" value="none" />
-    <preference name="StatusBarOverlaysWebView" value="true" />
 
     <icon src="img/icon.png" />
 
