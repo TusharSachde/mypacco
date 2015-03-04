@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-header-bar class="bar-assertive">
+                <img src="img/logo.png" alt="logo" class="header-img">
+    </ion-header-bar>
+
+    <ion-content class="has-header padding">
+
+        <form ng-submit="">
+            <div class="list border-round shadow-bottom">
+                <div class="text-center">
+                    <h4>Register</h4>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Name*</span>
+                    <input type="text" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Mobile*</span>
+                    <input type="tel" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email*</span>
+                    <input type="email" required>
+                </label>
+            </div>
+
+            <button class="button button-calm button-block" type="submit">Register</button>
+
+            <div class="text-center">-or-</div>
+
+            <a class="button button-balanced button-block" href="#/login">Sign In</a>
+        </form>
+
+    </ion-content>
+</ion-view>

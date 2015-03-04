@@ -1,20 +1,11 @@
 <ion-view view-title="Quotes">
-
-        <ion-nav-buttons side="right">
-            <button class="button button-calm button-outline">Book Now</button>
-        </ion-nav-buttons>
-
     <ion-content class="has-header padding">
-
-        <div class="button-bar">
-            <button class="button button-calm checked button-small">Today</button>
-            <button class="button button-calm button-small">Next Day</button>
-            <button class="button button-calm button-small">3-5+ Days</button>
-        </div>
 
         <div class="list border-round shadow-bottom">
             <div class="text-center">
-                <h4>Comparative Quotes</h4><p class="small">Select anyone from bellow and press book now.</p>
+                <h4>Comparative Quotes</h4>
+                <p class="small">We found 2 Services from Rs.19 onwards.
+                    <br>Select anyone from bellow and press book now.</p>
             </div>
 
 
@@ -22,7 +13,7 @@
                 <input type="radio" name="group">
                 <div class="item-thumbnail-left item-content item-text-wrap">
                     <img src="img/pc.jpg">
-                    <h2>Professional Courier (INR 300)</h2>
+                    <h2>Professional Courier (INR 19)</h2>
                     <p>Book by 04:00 PM for pickup today.</p>
                     <p class="rating"><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i>
                     </p>
@@ -36,7 +27,7 @@
                 <input type="radio" name="group">
                 <div class="item-thumbnail-left item-content item-text-wrap">
                     <img src="img/pc.jpg">
-                    <h2>Professional Courier (INR 300)</h2>
+                    <h2>Professional Courier (INR 30)</h2>
                     <p>Book by 04:00 PM for pickup today.</p>
                     <p class="rating"><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i>
                     </p>
@@ -49,9 +40,9 @@
 
 
         </div>
-
-        <a class="button button-energized button-block" href="#/app/home/details/quotes/book">Book Now</a>
-
-
     </ion-content>
+
+    <div class="bar bar-footer bar-calm" ng-click="openRestriction();">
+        <h1 class="title">Book Now</h1>
+    </div>
 </ion-view>

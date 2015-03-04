@@ -1,28 +1,37 @@
-<ion-view view-title="mypacco">
+<ion-view>
+    <ion-nav-title>
+        <img src="img/logo.png" alt="logo" class="header-img">
+    </ion-nav-title>
+
     <ion-content class="has-header padding">
 
         <div class="button-bar margin-bottom">
-            <button class="button button-calm checked">Domestic</button>
-            <button class="button button-calm">International</button>
+            <button class="button button-calm" ng-click="domestic = true;" ng-class="{checked : domestic}">Domestic</button>
+            <button class="button button-calm" ng-click="domestic = false;" ng-class="{checked : !domestic}">International</button>
         </div>
 
         <div class="row from-to shadow-bottom margin-bottom">
-            <div class="col">
+            <div class="col" ng-click="openFrom();">
                 <h3>From</h3>
-                <p contenteditable="true">400000</p>
+                <p>400000</p>
                 <div class="icon-holder"><i class="icon ion-arrow-right-c"></i>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" ng-click="openTo();" ng-if="domestic">
                 <h3>To</h3>
-                <p contenteditable="true">400000</p>
+                <p>400000</p>
+            </div>
+            <div class="col" ng-click="openCountry();" ng-if="!domestic">
+                <h3>Country</h3>
+                <p>USA</p>
             </div>
         </div>
 
         <label class="item item-input shadow-bottom border-round margin-bottom">
             <i class="icon ion-calendar placeholder-icon"></i>
-            <input type="date" placeholder="Select Date">
+            <input type="date" placeholder="Select Date" ng-model="today">
         </label>
+
 
         <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details">Parcel Details</a>
 

@@ -2,11 +2,33 @@
     <ion-content class="has-header padding">
 
         <div class="button-bar">
-            <button class="button button-calm">Document</button>
-            <button class="button button-calm checked">Parcel</button>
+            <button class="button button-calm checked" ng-click="document = true;" ng-class="{checked : document}">Document</button>
+            <button class="button button-calm" ng-click="document = false;" ng-class="{checked : !document}">Parcel</button>
         </div>
 
-        <div class="list border-round shadow-bottom">
+        <!--Document-->
+        <div class="list border-round shadow-bottom" ng-if="document">
+            <div class="text-center">
+                <h4>Document Detail</h4>
+            </div>
+            <label class="item item-input item-select">
+                <span class="input-label">Weight (gm)</span>
+                <select>
+                    <option value="250">250</option>
+                    <option value="500">500</option>
+                    <option value="750">750</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="2000">2000</option>
+                    <option value="2500">2500</option>
+                    <option value="3000">3000</option>
+                </select>
+            </label>
+        </div>
+
+
+        <!--Parcel-->
+        <div class="list border-round shadow-bottom" ng-if="!document">
             <div class="text-center">
                 <h4>Parcel Detail</h4>
             </div>
@@ -14,9 +36,70 @@
                 <span class="input-label">Description</span>
                 <input type="text">
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-select">
                 <span class="input-label">Weight (kg)</span>
-                <input type="number">
+                <select>
+                    <option value="0.5">0.5</option>
+                    <option value="1">1</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4">4</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5">5</option>
+                    <option value="5.5">5.5</option>
+                    <option value="6">6</option>
+                    <option value="6.5">6.5</option>
+                    <option value="7">7</option>
+                    <option value="7.5">7.5</option>
+                    <option value="8">8</option>
+                    <option value="8.5">8.5</option>
+                    <option value="9">9</option>
+                    <option value="9.5">9.5</option>
+                    <option value="10">10</option>
+                    <option value="10.5">10.5</option>
+                    <option value="11">11</option>
+                    <option value="11.5">11.5</option>
+                    <option value="12">12</option>
+                    <option value="12.5">12.5</option>
+                    <option value="13">13</option>
+                    <option value="13.5">13.5</option>
+                    <option value="14">14</option>
+                    <option value="14.5">14.5</option>
+                    <option value="15">15</option>
+                    <option value="15.5">15.5</option>
+                    <option value="16">16</option>
+                    <option value="16.5">16.5</option>
+                    <option value="17">17</option>
+                    <option value="17.5">17.5</option>
+                    <option value="18">18</option>
+                    <option value="18.5">18.5</option>
+                    <option value="19">19</option>
+                    <option value="19.5">19.5</option>
+                    <option value="20">20</option>
+                    <option value="20.5">20.5</option>
+                    <option value="21">21</option>
+                    <option value="21.5">21.5</option>
+                    <option value="22">22</option>
+                    <option value="22.5">22.5</option>
+                    <option value="23">23</option>
+                    <option value="23.5">23.5</option>
+                    <option value="24">24</option>
+                    <option value="24.5">24.5</option>
+                    <option value="25">25</option>
+                    <option value="25.5">25.5</option>
+                    <option value="26">26</option>
+                    <option value="26.5">26.5</option>
+                    <option value="27">27</option>
+                    <option value="27.5">27.5</option>
+                    <option value="28">28</option>
+                    <option value="28.5">28.5</option>
+                    <option value="29">29</option>
+                    <option value="29.5">29.5</option>
+                    <option value="30">30</option>
+                </select>
             </label>
             <label class="item item-input">
                 <span class="input-label">Length (cm)</span>
@@ -33,25 +116,6 @@
             <label class="item item-input">
                 <span class="input-label">Value (INR)</span>
                 <input type="text">
-            </label>
-        </div>
-
-        <div class="list border-round shadow-bottom" ng-show="">
-            <div class="text-center">
-                <h4>Parcel Detail</h4>
-            </div>
-            <label class="item item-input item-select">
-                <span class="input-label">Weight (gm)</span>
-                <select>
-                    <option value="250">250</option>
-                    <option value="500">500</option>
-                    <option value="750">750</option>
-                    <option value="1000">1000</option>
-                    <option value="1500">1500</option>
-                    <option value="2000">2000</option>
-                    <option value="2500">2500</option>
-                    <option value="3000">3000</option>
-                </select>
             </label>
         </div>
 

@@ -107,7 +107,7 @@
     transform: translateY(-50%);
 }
 .small {
-    font-size: 10px;
+    font-size: 11px;
 }
 .rating i {
     color: #F9EE23;
@@ -116,6 +116,15 @@
     font-family: 'Eurostile Demi';
     line-height: 46px !important;
 }
+.header-img {
+    width: auto;
+    height: 25px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 9px;
+}
+.only-horizontal {padding: 0 10px;}
+.border-white {border-color: white !important;}
 /*Jhol with IONIC*/
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {
