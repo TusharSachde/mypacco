@@ -1,4 +1,4 @@
-var adminurl = "http://mypacco.com/public/index.php/mobile/";
+var adminurl = "http://www.mypacco.com/mobile/";
 
 var myservices = angular.module('myservices', [])
 
@@ -6,10 +6,31 @@ var myservices = angular.module('myservices', [])
     return {
         getcountrylist: function() {
             return $http({
-                url: "http://www.mypacco.com/mobile/countrylist",
+                url: adminurl + "countrylist",
                 method: "POST",
-                data: {"AppId":"46b4e721-18bd-4fd6-8209-a805aea2da5b","Token":"1234","Data":{}}
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
             })
-        }
-    }
-})
+        },
+
+        getpincode: function() {
+            return $http({
+                url: adminurl + "pincodelist",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "country": "1",
+                        "q": "380013"
+                    }
+                }
+            })
+        },
+        
+    };
+
+});

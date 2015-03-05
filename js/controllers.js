@@ -8,7 +8,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices) {
+.controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading) {
     $scope.today = new Date();
     $scope.domestic = true;
 
@@ -62,11 +62,28 @@ angular.module('starter.controllers', ['myservices'])
     };
 
     //Rest Services
+
+    //Country List
     var contsucess = function(data, status) {
         $scope.allcountries = data.Data;
         console.log(data);
+        $ionicLoading.hide();
     };
     MyServices.getcountrylist().success(contsucess);
+
+    var pincodesucess = function(data, status) {
+        $scope.allpincodes = data;
+        console.log(data);
+    };
+    MyServices.getpincode().success(pincodesucess);
+
+
+
+
+    $ionicLoading.show({
+        template: 'Please wait...'
+    });
+
 })
 
 .controller('DetailsCtrl', function($scope, $stateParams, $ionicModal) {
