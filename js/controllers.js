@@ -72,13 +72,32 @@ angular.module('starter.controllers', ['myservices'])
     MyServices.getcountrylist().success(contsucess);
 
     var pincodesucess = function(data, status) {
-        $scope.allpincodes = data;
+        $scope.allpincodes = data.Data;
         console.log(data);
+        $ionicLoading.hide();
     };
-    MyServices.getpincode().success(pincodesucess);
 
+    var pin1 = $scope.datasearch;
+    $scope.doSearch = function(pin1) {
+        MyServices.getpincode(pin1).success(pincodesucess);
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    };
 
+    //Pin From select
+    $scope.finalPin = 'Select pincode';
+    $scope.goPin = function(comePin) {
+        $scope.finalPin = comePin;
+        $scope.closeFrom();
+    };
 
+    //Pin To select
+    $scope.finalPinto = 'Select pincode';
+    $scope.goPinto = function(comePinto) {
+        $scope.finalPinto = comePinto;
+        $scope.closeTo();
+    };
 
     $ionicLoading.show({
         template: 'Please wait...'

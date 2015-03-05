@@ -16,7 +16,7 @@ var myservices = angular.module('myservices', [])
             })
         },
 
-        getpincode: function() {
+        getpincode: function(pin) {
             return $http({
                 url: adminurl + "pincodelist",
                 method: "POST",
@@ -25,7 +25,7 @@ var myservices = angular.module('myservices', [])
                     "Token": "1234",
                     "Data": {
                         "country": "1",
-                        "q": "380013"
+                        "q": pin
                     }
                 }
             })
