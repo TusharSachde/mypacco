@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['myservices'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('HomeCtrl', function($scope, $stateParams, $ionicModal) {
+.controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices) {
     $scope.today = new Date();
     $scope.domestic = true;
 
@@ -60,13 +60,20 @@ angular.module('starter.controllers', [])
     $scope.closeCountry = function() {
         $scope.oModal3.hide();
     };
+
+    //Rest Services
+    var contsucess = function(data, status) {
+        $scope.allcountries = data.Data;
+        console.log(data);
+    };
+    MyServices.getcountrylist().success(contsucess);
 })
 
 .controller('DetailsCtrl', function($scope, $stateParams, $ionicModal) {
     $scope.document = true;
 })
 
-.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal,$location) {
+.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location) {
     $ionicModal.fromTemplateUrl('templates/modalrestriction.html', {
         id: '4',
         scope: $scope,
@@ -78,12 +85,12 @@ angular.module('starter.controllers', [])
     $scope.openRestriction = function() {
         $scope.oModal4.show();
     };
-    
+
     $scope.agree = function() {
         $location.path('app/home/details/quotes/book');
         $scope.oModal4.hide();
     };
-    
+
     $scope.closeRestriction = function() {
         $scope.oModal4.hide();
     };

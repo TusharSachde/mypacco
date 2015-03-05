@@ -13,17 +13,22 @@
         <div class="row from-to shadow-bottom margin-bottom">
             <div class="col" ng-click="openFrom();">
                 <h3>From</h3>
-                <p>400000</p>
+                <p>Select pincode</p>
                 <div class="icon-holder"><i class="icon ion-arrow-right-c"></i>
                 </div>
             </div>
             <div class="col" ng-click="openTo();" ng-if="domestic">
                 <h3>To</h3>
-                <p>400000</p>
+                <p>Select pincode</p>
             </div>
-            <div class="col" ng-click="openCountry();" ng-if="!domestic">
-                <h3>Country</h3>
-                <p>USA</p>
+            <div class="col" ng-if="!domestic" ng-click="country();">
+                <h3>To</h3>
+                <div class="white-select">
+                    <select id="country">
+                       <option value="">Select country</option>
+                        <option value="{{allcountry.CountryId}}" ng-repeat="allcountry in allcountries">{{allcountry.Country}}</option>
+                    </select>
+                </div>
             </div>
         </div>
 

@@ -123,8 +123,40 @@
     margin: 0 auto;
     margin-top: 9px;
 }
-.only-horizontal {padding: 0 10px;}
-.border-white {border-color: white !important;}
+.only-horizontal {
+    padding: 0 10px;
+}
+.border-white {
+    border-color: white !important;
+}
+.platform-android .header-img {
+    margin-left: 0;
+}
+.white-select select {
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 33px 0 0 35%;
+    margin-top: -33px;
+}
+.white-select {
+    position: relative;
+    padding-right: 16px;
+}
+.white-select:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: #999;
+    content: "";
+    pointer-events: none;
+}
 /*Jhol with IONIC*/
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {
