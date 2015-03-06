@@ -11,6 +11,7 @@ angular.module('starter.controllers', ['myservices'])
 .controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading) {
     $scope.today = new Date();
     $scope.domestic = true;
+    $scope.document = true;
 
     //Modal
     //FROM
@@ -102,11 +103,6 @@ angular.module('starter.controllers', ['myservices'])
     $ionicLoading.show({
         template: 'Please wait...'
     });
-
-})
-
-.controller('DetailsCtrl', function($scope, $stateParams, $ionicModal) {
-    $scope.document = true;
 })
 
 .controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location) {
