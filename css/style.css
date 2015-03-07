@@ -157,6 +157,19 @@
     content: "";
     pointer-events: none;
 }
+.item-divider {
+    padding: 10px 15px !important;
+    min-height: 30px;
+    background-color: #eee;
+    color: #222;
+    font-weight: 600;
+    font-size: 14px;
+}
+.bold>*,
+.bold {
+    font-weight: 600;
+}
+.row.item {padding: 16px;}
 /*Jhol with IONIC*/
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {

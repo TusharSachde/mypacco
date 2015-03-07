@@ -72,6 +72,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+
+    .state('app.summary', {
+        url: "/home/details/quotes/book/summary",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/parcelsummary.html",
+                controller: 'BookCtrl'
+
+            }
+        }
+    })
     
     //Login    
     .state('login', {

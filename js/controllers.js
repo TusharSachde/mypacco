@@ -128,6 +128,20 @@ angular.module('starter.controllers', ['myservices'])
     };
 })
 
-.controller('BookCtrl', function($scope, $stateParams) {
+.controller('BookCtrl', function($scope, $stateParams, $ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/modalterms.html', {
+        id: '5',
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.oModal5 = modal;
+    });
+    
+      $scope.openTerms = function() {
+        $scope.oModal5.show();
+    };
 
+    $scope.closeTerms = function() {
+        $scope.oModal5.hide();
+    };
 });
