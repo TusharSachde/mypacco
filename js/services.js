@@ -159,7 +159,8 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "OrderDetailId": "430",
+                        "OrderDetailId": $.jStorage.get("orderid"),
+//                        "OrderDetailId": "5959",
                         "DeliveryTimeId": "0"
                     }
                 }
@@ -472,7 +473,7 @@ var myservices = angular.module('myservices', [])
             })
         },
 
-        saveorder: function(details, jdata) {
+        saveorder: function(details) {
             return $http({
                 url: adminurl + "saveorder",
                 method: "POST",
@@ -481,18 +482,18 @@ var myservices = angular.module('myservices', [])
                     "Token": "1234",
                     "order": {         
                         		 "OrderdetailID": "",
-                                 "DeliveryType": "1", //1 : domestic 2: international
-                                 "FromPincode": jdata.finalpin,
-                                 "ToPincode": jdata.finalto,
-                                 "PickDate": jdata.finaldate,
+                                 "DeliveryType": details.DeliveryType, //1 : domestic 2: international
+                                 "FromPincode": details.FromPincode,
+                                 "ToPincode": details.ToPincode,
+                                 "PickDate": details.PickDate,
                                  "CurrencyId": 1,
-                                 "ParcelType": "1", //1 :document 2 : parcel
-                                 "Weight": "1",//document
-                                // "Weight1": "1", //parcel
-                                 //"SizeL": "1",
-                                 //"SizeW": "1",
-                                 //"SizeH": "1",
-                                 //"Value": "1"      
+                                 "ParcelType": details.ParcelType, //1 :document 2 : parcel
+                                 "Weight": details.weight,//document
+                                 "Weight1": details.weight1, //parcel
+                                 "SizeL": details.sizeL,
+                                 "SizeW": details.sizeW,
+                                 "SizeH": details.sizeH,
+                                 "Value": details.value      
                     }
                 }
             })
