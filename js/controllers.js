@@ -8,10 +8,14 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading, $location, $filter) {
     $scope.today = new Date();
     $scope.domestic = true;
     $scope.document = true;
+	$scope.jstoragedata = {};
+	$scope.jstoragedata.DeliveryType="1";
+	$scope.details = [];
+	$scope.details.ParcelType = "1";
 
     //Modal
     //FROM
@@ -90,22 +94,81 @@ angular.module('starter.controllers', ['myservices'])
     $scope.finalPin = 'Select pincode';
     $scope.goPin = function(comePin) {
         $scope.finalPin = comePin;
+		$scope.jstoragedata.finalpin=comePin;
+//		MyServices.fincalpinjsrotage(comePin);
         $scope.closeFrom();
     };
+	
+	$scope.parcel = function () {
+		console.log("parcel");
+		$scope.jstoragedata.finaldate = $scope.today;
+		MyServices.fincalpinjsrotage($scope.jstoragedata);
+		$location.url('app/home/details');
+	}
 
+	// DEMESTIC
+	$scope.domestictrue = function (){
+		$scope.domestic = true;
+		$scope.jstoragedata.DeliveryType="1";
+		console.log($scope.jstoragedata);
+	}
+	$scope.domesticfalse = function (){
+		$scope.domestic = false;
+		$scope.jstoragedata.DeliveryType="2";
+		console.log($scope.jstoragedata);
+	}
+	
+	$scope.countrychange = function (country) {
+		$scope.jstoragedata.finalto = country;
+		
+	}
+	
+	// DETAILS DOCUMENT PARCEL
+	$scope.documenttrue = function (){
+		$scope.document = true;
+		$scope.details.ParcelType = "1";
+	}
+	$scope.documentfalse = function (){
+		$scope.document = false;
+		$scope.details.ParcelType = "2";
+	}
+	
     //Pin To select
     $scope.finalPinto = 'Select pincode';
     $scope.goPinto = function(comePinto) {
         $scope.finalPinto = comePinto;
+		$scope.jstoragedata.finalto = comePinto;
         $scope.closeTo();
     };
 
     $ionicLoading.show({
         template: 'Please wait...'
     });
+	
+	
+	// GET QUOTES
+	var ordersuccess = function (data, status) {
+		console.log(data);
+	}
+	
+	$scope.getquotes = function (details) {
+		$scope.doin = MyServices.getjstorage();
+		console.log("details");
+		console.log($scope.doin);
+		console.log("jstorage");
+		if(details.ParcelType == "1")
+		{
+			details.weight1 = 0;
+		}else{
+			details.weight = 0;
+		}
+		details.PickDate = $scope.doin.finaldate;
+		console.log(details);
+//		MyServices.saveorder(details, $scope.jstoragedata).success(ordersuccess);
+	}
 })
 
-.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location) {
+.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout) {
     $ionicModal.fromTemplateUrl('templates/modalrestriction.html', {
         id: '4',
         scope: $scope,
@@ -126,6 +189,16 @@ angular.module('starter.controllers', ['myservices'])
     $scope.closeRestriction = function() {
         $scope.oModal4.hide();
     };
+	
+	$ionicLoading.show({
+//        template: 'We are fetching the best rates for you.',
+		
+    content: 'We are fetching the best rates for you.',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: '0'
+    });
 })
 
 .controller('BookCtrl', function($scope, $stateParams, $ionicModal) {

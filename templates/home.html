@@ -6,10 +6,9 @@
     <ion-content class="has-header padding">
 
         <div class="button-bar margin-bottom">
-            <button class="button button-calm" ng-click="domestic = true;" ng-class="{checked : domestic}">Domestic</button>
-            <button class="button button-calm" ng-click="domestic = false;" ng-class="{checked : !domestic}">International</button>
+            <button class="button button-calm" ng-click="domestictrue()" ng-class="{checked : domestic}">Domestic</button>
+            <button class="button button-calm" ng-click="domesticfalse()" ng-class="{checked : !domestic}">International</button>
         </div>
-
         <div class="row from-to shadow-bottom margin-bottom">
             <div class="col" ng-click="openFrom();">
                 <h3>From</h3>
@@ -24,7 +23,7 @@
             <div class="col" ng-if="!domestic" ng-click="country();">
                 <h3>To</h3>
                 <div class="white-select">
-                    <select id="country">
+                    <select id="country" ng-model="country" ng-change="countrychange(country)">
                        <option value="">Select country</option>
                         <option value="{{allcountry.CountryId}}" ng-repeat="allcountry in allcountries">{{allcountry.Country}}</option>
                     </select>
@@ -37,7 +36,8 @@
         </label>
 
 
-        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details">Parcel Details</a>
+<!--        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details">Parcel Details</a>-->
+        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-click="parcel()">Parcel Details</a>
 
 
     </ion-content>

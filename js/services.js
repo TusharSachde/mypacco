@@ -472,31 +472,38 @@ var myservices = angular.module('myservices', [])
             })
         },
 
-        saveorder: function() {
+        saveorder: function(details, jdata) {
             return $http({
                 url: adminurl + "saveorder",
                 method: "POST",
                 data: {
-                    "AppId": "46b4e721-18bd-4fd6-a805aea2da5b",
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "order": {         
-                        "OrderdetailID": "",
-                                 "DeliveryType": "1",
-                                 "ServiceTypeID": "1",
-                                 "FromPincode": "511110",
-                                 "ToPincode": "511117",
-                                 "PickDate": "14.01.2015",
+                        		 "OrderdetailID": "",
+                                 "DeliveryType": "1", //1 : domestic 2: international
+                                 "FromPincode": jdata.finalpin,
+                                 "ToPincode": jdata.finalto,
+                                 "PickDate": jdata.finaldate,
                                  "CurrencyId": 1,
-                                 "ParcelType": "1",
-                                 "Weight": "1",
-                                 "Weight1": "1",
-                                 "SizeL": "1",
-                                 "SizeW": "1",
-                                 "SizeH": "1",
-                                 "Value": "1"      
+                                 "ParcelType": "1", //1 :document 2 : parcel
+                                 "Weight": "1",//document
+                                // "Weight1": "1", //parcel
+                                 //"SizeL": "1",
+                                 //"SizeW": "1",
+                                 //"SizeH": "1",
+                                 //"Value": "1"      
                     }
                 }
             })
+        },
+
+        fincalpinjsrotage: function(data) {
+			console.log(data);
+            $.jStorage.set("order", data);
+        },
+        getjstorage: function(data) {
+            return $.jStorage.get("order");
         },
 
     };
