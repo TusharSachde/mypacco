@@ -4,17 +4,16 @@
         <div class="list border-round shadow-bottom">
             <div class="text-center">
                 <h4>Comparative Quotes</h4>
-                <p class="small">We found {{quotes.length}} Services from Rs.19 onwards.
+                <p class="small">We found 2 Services from Rs.19 onwards.
                     <br>Select anyone from below and press book now.</p>
             </div>
 
-            <label class="item item-radio" ng-repeat="quote in quotes" ng-click="radiockick(quote)">
+            <label class="item item-radio">
                 <input type="radio" name="group">
                 <div class="item-thumbnail-left item-content item-text-wrap">
-                    <img src="{{quote.LogoImage | imagepath}}">
-<!--                    <h2>Professional Courier (INR 19)</h2>-->
-                    <h2>{{quote.VendorService}}</h2>
-                    <p>{{quote.ExtraInfo}}</p>
+                    <img src="img/pc.jpg">
+                    <h2>Professional Courier (INR 19)</h2>
+                    <p>Book by 04:00 PM for pickup today.</p>
                     <p class="rating"><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i>
                     </p>
                     <span class="assertive small">CASH ON PICKUP</span>
@@ -23,6 +22,21 @@
                 </div>
                 <i class="radio-icon ion-checkmark"></i>
             </label>
+            <label class="item item-radio">
+                <input type="radio" name="group">
+                <div class="item-thumbnail-left item-content item-text-wrap">
+                    <img src="img/pc.jpg">
+                    <h2>Professional Courier (INR 30)</h2>
+                    <p>Book by 04:00 PM for pickup today.</p>
+                    <p class="rating"><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i>
+                    </p>
+                    <span class="assertive small">CASH ON PICKUP</span>
+                    <button href="" class="button button-clear button-small button-assertive"><i class="icon ion-information-circled"></i>
+                    </button>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+
 
         </div>
     </ion-content>

@@ -98,16 +98,4 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');
-})
-
-.filter('imagepath', function() {
-    return function(input) {
-        if (input == "") {
-            return "http://www.mypacco.com/images/VendorLogos/campassador.png";
-            //                            return "http://localhost/sergybackend/assets/img/default.jpg";
-        } else {
-            return "http://uat1.mypacco.com/images/VendorLogos/" + input;
-            //                        return "http://localhost/sergybackend/uploads/" + input;
-        }
-    };
 });
