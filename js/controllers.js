@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['myservices'])
+angular.module('starter.controllers', ['myservices', 'base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -100,8 +100,9 @@ angular.module('starter.controllers', ['myservices'])
     };
 	
 	$scope.parcel = function () {
-		console.log("parcel");
-		$scope.jstoragedata.finaldate = $scope.today;
+		console.log("date date date");
+		console.log($filter('date')($scope.today, "dd.MM.yyyy"));
+		$scope.jstoragedata.finaldate = $filter('date')($scope.today, "dd.MM.yyyy");
 		MyServices.fincalpinjsrotage($scope.jstoragedata);
 		$location.url('app/home/details');
 	}
@@ -253,12 +254,57 @@ angular.module('starter.controllers', ['myservices'])
     });
 })
 
-.controller('BookCtrl', function($scope, $stateParams, $ionicModal) {
+.controller('BookCtrl', function($scope, $stateParams, $ionicModal, MyServices, $location, $ionicPopup, $base64) {
     
     $scope.book = [];
+    $scope.parcel = [];
+    
+    
+    // PAYMENT GETWAY
+    var paymentsuccess = function(data, status){
+        console.log(data);
+    }
+    $scope.gotopayment = function (){
+        console.log("encode");
+        MyServices.gopayment($base64.encode($.jStorage.get("orderid"))).success(paymentsuccess);
+    }
+    
+    var booksuccess = function (data, status) {
+        console.log(data);
+        $scope.book = data.Data.Data[0];
+        MyServices.orderitems().success(parcelsuccess);
+    }
+    
+    var parcelsuccess = function (data, status) {
+        console.log("order parcel");
+        console.log(data);
+        $scope.parcel = data.Data[0];
+    }
+    
+    var booksuccesssummary = function (data, status) {
+        console.log(data);
+        $scope.book = data.Data.Data[0];
+        MyServices.orderitems().success(parcelsuccess);
+    }
+    MyServices.getparcelsummary().success(booksuccess);
+    
+    var savebooksuccess = function (data, status) {
+        console.log(data);
+        if(data.IsSuccess == true)
+        {
+            $location.url("/app/home/details/quotes/book/summary");
+            MyServices.getparcelsummary().success(booksuccesssummary);
+        }else{
+             var alertPopup = $ionicPopup.alert({
+                title: 'MyPacco',
+                template: 'Error In Processing'
+            });
+        }
+    }
     
     $scope.savebook = function (book) {
         console.log(book);
+        MyServices.savebookdetaildata(book).success(savebooksuccess);
     }
     
     // DESIGN MODEL

@@ -62,7 +62,7 @@ var myservices = angular.module('myservices', [])
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
-                    "Data": {}
+                    "Data": {"OrderDetailId":$.jStorage.get("orderid")}
                 }
             })
         },
@@ -159,8 +159,9 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-//                        "OrderDetailId": $.jStorage.get("orderid"),
-                        "OrderDetailId": "3667",
+                        "OrderDetailId": $.jStorage.get("orderid"),
+//                        "OrderDetailId": "3667",
+//                        "OrderDetailId": "430",
                         "DeliveryTimeId": "0"
                     }
                 }
@@ -181,10 +182,11 @@ var myservices = angular.module('myservices', [])
                             "VendorServiceId": service.VendorServiceId,
                             "TotalAmount": service.TotalAmount,
                             "DeliveryTimeId": service.DeliveryTimeId,
-                            "CreatedDate": service.CreatedDate,
-                            "CopAvailable": service.CopAvailable
+                            "picdate": service.picdate,
+                            "CreatedDate": service.picdate,
+                            "CopAvailable": service.CopAllowed
                         },
-                        "orderId": "3667"
+                        "orderId": $.jStorage.get("orderid")
                     }
                 }
             })
@@ -210,13 +212,13 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "OrderDetailId": "215"
+                        "OrderDetailId": $.jStorage.get("orderid")
                     }
                 }
             })
         },
 
-        savebookdetaildata: function() {
+        savebookdetaildata: function(book) {
             return $http({
                 url: adminurl + "savebookdetaildata",
                 method: "POST",
@@ -225,41 +227,41 @@ var myservices = angular.module('myservices', [])
                     "Token": "1234",
                     "Data": {
                         "bookdetail": {
-                            "ServiceTypeId": 1,
-                            "IsPersonal": null,
-                            "OrderDetailId": "91",
-                            "FromCompany": "abc",
-                            "ToCompany": "test",
-                            "FromName": "udayraj",
-                            "ToName": "henry",
-                            "FromMobile": "3216541654",
-                            "ToMobile": "9786863242",
-                            "FromEmail": "uday@kairasoftware.com",
-                            "ToEmail": "henry@kaira.com",
-                            "FromAddress1": "hbdsa jhbn",
-                            "ToAddress1": "bxcvxcx",
-                            "FromAddress2": "dfg",
-                            "ToAddress2": "fdgd",
-                            "FromLandmark": "fdg",
-                            "ToLandmark": "dsf",
-                            "FromSuburb": "dsf",
-                            "ToSuburb": "sdf",
-                            "fcity": "Ahmedabad",
-                            "tcity": "Ahmedabad",
-                            "fpincode": "380013",
-                            "tpincode": "380013",
-                            "FromState": "Gujarat",
-                            "ToState": "Gujarat",
-                            "FromCountry": "India",
-                            "ToCountry": "India",
-                            "FromTo": "India To India",
-                            "servicetype": "Document",
-                            "Qty": "1",
-                            "PickDate": "30.12.2014",
-                            "WeightUnit": "Kg",
-                            "LengthUnit": "CM",
-                            "fpo": "naranpura",
-                            "tpo": "naranpura"
+//                            "ServiceTypeId": 1,
+//                            "IsPersonal": null,
+                            "OrderDetailId": $.jStorage.get("orderid"),
+                            "FromCompany": book.FromCompany,
+                            "ToCompany": book.ToCompany,
+                            "FromName": book.FromName,
+                            "ToName": book.ToName,
+                            "FromMobile": book.FromMobile,
+                            "ToMobile": book.ToMobile,
+                            "FromEmail": book.FromEmail,
+                            "ToEmail": book.ToEmail,
+                            "FromAddress1": book.FromAddress1,
+                            "ToAddress1": book.ToAddress1,
+                            "FromAddress2": book.FromAddress2,
+                            "ToAddress2": book.ToAddress2,
+                            "FromLandmark": book.FromLandmark,
+                            "ToLandmark": book.ToLandmark
+//                            "FromSuburb": "dsf",
+//                            "ToSuburb": "sdf",
+//                            "fcity": "Ahmedabad",
+//                            "tcity": "Ahmedabad",
+//                            "fpincode": "380013",
+//                            "tpincode": "380013",
+//                            "FromState": "Gujarat",
+//                            "ToState": "Gujarat",
+//                            "FromCountry": "India",
+//                            "ToCountry": "India",
+//                            "FromTo": "India To India",
+//                            "servicetype": "Document",
+//                            "Qty": "1",
+//                            "PickDate": "30.12.2014",
+//                            "WeightUnit": "Kg",
+//                            "LengthUnit": "CM",
+//                            "fpo": "naranpura",
+//                            "tpo": "naranpura"
                         }
                     }
                 }
@@ -465,6 +467,18 @@ var myservices = angular.module('myservices', [])
         signout: function() {
             return $http({
                 url: adminurl + "signout",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        
+        gopayment: function(id) {
+            return $http({
+                url: adminurl + "payment/" + id,
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-a805aea2da5b",

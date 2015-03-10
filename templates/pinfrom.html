@@ -16,7 +16,7 @@
             </form>
 
             <!--Repeat pincode, cities-->
-            <ion-item ng-repeat="allpincode in allpincodes" ng-click="goPin(allpincode.name);">{{allpincode.name}}, {{allpincode.po}}, {{allpincode.city}}</ion-item>
+            <ion-item ng-repeat="allpincode in allpincodes" ng-click="goPin(allpincode.id);">{{allpincode.name}}, {{allpincode.po}}, {{allpincode.city}}</ion-item>
         </ion-list>
     </ion-content>
 </ion-modal-view>
