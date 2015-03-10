@@ -1,4 +1,4 @@
-var adminurl = "http://www.mypacco.com/mobile/";
+var adminurl = "http://uat1.mypacco.com/mobile/";
 
 var myservices = angular.module('myservices', [])
 
@@ -159,15 +159,16 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "OrderDetailId": $.jStorage.get("orderid"),
-//                        "OrderDetailId": "5959",
+//                        "OrderDetailId": $.jStorage.get("orderid"),
+                        "OrderDetailId": "3667",
                         "DeliveryTimeId": "0"
                     }
                 }
             })
         },
 
-        addorderservice: function() {
+        addorderservice: function(service) {
+            
             return $http({
                 url: adminurl + "addorderservice",
                 method: "POST",
@@ -176,14 +177,14 @@ var myservices = angular.module('myservices', [])
                     "Token": "1234",
                     "Data": {
                         "order": {
-                            "VendorId": "1",
-                            "VendorServiceId": "1",
-                            "TotalAmount": "16.85",
-                            "DeliveryTimeId": "1",
-                            "CreatedDate": "2015-02-12 10:09:35",
-                            "CopAvailable": "1"
+                            "VendorId": service.VendorId,
+                            "VendorServiceId": service.VendorServiceId,
+                            "TotalAmount": service.TotalAmount,
+                            "DeliveryTimeId": service.DeliveryTimeId,
+                            "CreatedDate": service.CreatedDate,
+                            "CopAvailable": service.CopAvailable
                         },
-                        "orderId": "91"
+                        "orderId": "3667"
                     }
                 }
             })
