@@ -1,4 +1,4 @@
-var adminurl = "http://uat1.mypacco.com/mobile/";
+var adminurl = "http://www.mypacco.com/mobile/";
 
 var myservices = angular.module('myservices', [])
 
