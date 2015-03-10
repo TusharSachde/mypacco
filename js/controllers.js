@@ -167,23 +167,23 @@ angular.module('starter.controllers', ['myservices'])
 		console.log("jstorage");
 		if(details.ParcelType == "2")
 		{
-			details.weight1 = 0;
+			details.weight = 1;
 		}else{
-			details.weight = 0;
-            details.sizeH = 0;
-            details.sizeL = 0;
-            details.value = 0;
-            details.sizeW = 0;
+			details.weight1 = 1;
+            details.sizeH = 1;
+            details.sizeL = 1;
+            details.value = 1;
+            details.sizeW = 1;
 		}
         details.DeliveryType = $scope.doin.DeliveryType;
         details.FromPincode = $scope.doin.finalpin;
         if(details.DeliveryType == "1")
         {
             details.ToPincode = $scope.doin.finalto;
-            details.country = 0;
+            details.country = 1;
         }else{
             details.country = $scope.doin.country;
-            details.ToPincode = "0";
+            details.ToPincode = "1";
             
         }
             
@@ -194,6 +194,29 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout, MyServices) {
+    
+    $scope.quotes = [];
+    $scope.quote = [];
+    
+    // ON RADIO CLICK
+    var orderservicesuccess = function (data, status){
+        console.log(data);
+    }
+    $scope.radiockick = function (quote) {
+        console.log(quote);
+        $scope.quote = quote;
+        
+    }
+    
+    // GET SERVICES
+    var servicesuccess = function (data, status) {
+        console.log(data);
+        $scope.quotes = data.Data;
+        $ionicLoading.hide();
+    }
+    MyServices.availableservices().success(servicesuccess);
+    
+    
     $ionicModal.fromTemplateUrl('templates/modalrestriction.html', {
         id: '4',
         scope: $scope,
@@ -207,32 +230,38 @@ angular.module('starter.controllers', ['myservices'])
     };
 
     $scope.agree = function() {
-        $location.path('app/home/details/quotes/book');
+        
+        MyServices.addorderservice($scope.quote).success(orderservicesuccess);
+        
         $scope.oModal4.hide();
+        $location.path('app/home/details/quotes/book');
     };
 
     $scope.closeRestriction = function() {
         $scope.oModal4.hide();
     };
     
-    var servicesuccess = function (data, status) {
-        console.log(data);
-    }
-    MyServices.availableservices().success(servicesuccess);
-    
 	
-//	$ionicLoading.show({
-////        template: 'We are fetching the best rates for you.',
-//		
-//    content: 'We are fetching the best rates for you.',
-//    animation: 'fade-in',
-//    showBackdrop: true,
-//    maxWidth: 200,
-//    showDelay: '0'
-//    });
+	$ionicLoading.show({
+//        template: 'We are fetching the best rates for you.',
+		
+    content: 'We are fetching the best rates for you.',
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: '0'
+    });
 })
 
 .controller('BookCtrl', function($scope, $stateParams, $ionicModal) {
+    
+    $scope.book = [];
+    
+    $scope.savebook = function (book) {
+        console.log(book);
+    }
+    
+    // DESIGN MODEL
     $ionicModal.fromTemplateUrl('templates/modalterms.html', {
         id: '5',
         scope: $scope,
