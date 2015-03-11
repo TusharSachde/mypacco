@@ -273,10 +273,13 @@ angular.module('starter.controllers', ['myservices', 'base64'])
 	
     $scope.gotopayment = function (){
         console.log("encode");
-//        MyServices.gopayment($base64.encode($.jStorage.get("orderid"))).success(paymentsuccess);
+        console.log($base64.encode($.jStorage.get("orderid")));
+		
+		var orderid=$base64.encode($.jStorage.get("orderid"));
+		orderid=orderid.substr(0,orderid.length-2);
 		console.log(window.location);
 		 var abc = window.location.origin + window.location.pathname + "success.html";
-        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + $base64.encode($.jStorage.get("orderid")), '_blank', 'location=no');
+        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=no');
 //        stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function (event) {
             MyServices.getparcelsummary().success(onpayment);
