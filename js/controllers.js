@@ -279,7 +279,7 @@ angular.module('starter.controllers', ['myservices', 'base64'])
 		orderid=orderid.substr(0,orderid.length-2);
 		console.log(window.location);
 		 var abc = window.location.origin + window.location.pathname + "success.html";
-        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=no');
+        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
 //        stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function (event) {
             MyServices.getparcelsummary().success(onpayment);
