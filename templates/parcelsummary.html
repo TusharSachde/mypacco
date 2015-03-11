@@ -54,7 +54,7 @@
             <div class="item-divider">Terms &amp; Conditions</div>
             <ion-item class="item-checkbox">
                 <label class="checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="agree">
                 </label>
                 I Agree
             </ion-item>
@@ -64,7 +64,7 @@
 
         <div class="padding-horizontal">
 <!--            <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details/quotes/book/summary">Proceed to Pay</a>-->
-            <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-click="gotopayment()">Proceed to Pay</a>
+            <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-disabled="agree" ng-click="gotopayment()">Proceed to Pay</a>
         </div>
 
     </ion-content>

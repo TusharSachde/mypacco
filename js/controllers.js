@@ -1,3 +1,4 @@
+var ref = 0;
 angular.module('starter.controllers', ['myservices', 'base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -184,7 +185,7 @@ angular.module('starter.controllers', ['myservices', 'base64'])
             details.country = 1;
         }else{
             details.country = $scope.doin.country;
-            details.ToPincode = "1";
+            details.ToPincode = 1;
             
         }
             
@@ -264,9 +265,23 @@ angular.module('starter.controllers', ['myservices', 'base64'])
     var paymentsuccess = function(data, status){
         console.log(data);
     }
+	
+	var onpayment = function(data, status){
+		console.log("on payment success");
+		console.log(data);
+	}
+	
     $scope.gotopayment = function (){
         console.log("encode");
-        MyServices.gopayment($base64.encode($.jStorage.get("orderid"))).success(paymentsuccess);
+//        MyServices.gopayment($base64.encode($.jStorage.get("orderid"))).success(paymentsuccess);
+		console.log(window.location);
+		 var abc = window.location.origin + window.location.pathname + "success.html";
+        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + $base64.encode($.jStorage.get("orderid")), '_blank', 'location=no');
+//        stopinterval = $interval(callAtIntervaltwitter, 2000);
+        ref.addEventListener('exit', function (event) {
+            MyServices.getparcelsummary().success(onpayment);
+//            $interval.cancel(stopinterval);
+        });
     }
     
     var booksuccess = function (data, status) {
