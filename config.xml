@@ -48,6 +48,7 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
 
 
     <feature name="StatusBar">
