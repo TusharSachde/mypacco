@@ -92,10 +92,11 @@ angular.module('starter.controllers', ['myservices', 'base64'])
     };
 
     //Pin From select
-    $scope.finalPin = 'Select pincode';
+    $scope.pinfrom = 'Select pincode';
     $scope.goPin = function(comePin) {
-        $scope.finalPin = comePin;
-		$scope.jstoragedata.finalpin=comePin;
+		$scope.pinfrom = comePin.name;
+        $scope.finalPin = comePin.id;
+		$scope.jstoragedata.finalpin=comePin.id;
 //		MyServices.fincalpinjsrotage(comePin);
         $scope.closeFrom();
     };
@@ -136,10 +137,11 @@ angular.module('starter.controllers', ['myservices', 'base64'])
 	}
 	
     //Pin To select
-    $scope.finalPinto = 'Select pincode';
+    $scope.pinto = 'Select pincode';
     $scope.goPinto = function(comePinto) {
-        $scope.finalPinto = comePinto;
-		$scope.jstoragedata.finalto = comePinto;
+		$scope.pinto = comePinto.name;
+        $scope.finalPinto = comePinto.id;
+		$scope.jstoragedata.finalto = comePinto.id;
         $scope.closeTo();
     };
 
