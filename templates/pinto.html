@@ -9,14 +9,17 @@
     <ion-content>
         <ion-list>
             <form class="item item-input-inset only-horizontal" ng-submit="doSearch(datasearch);">
-                    <label class="item-input-wrapper">
-                        <input type="text" placeholder="Search Pincode, City" ng-model="datasearch">
-                    </label>
-                    <button class="button button-icon ion-search" type="submit"></button>
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Search Pincode, City" ng-model="datasearch">
+                </label>
+                <button class="button button-icon ion-search" type="submit"></button>
             </form>
 
             <!--Repeat pincode, cities-->
             <ion-item ng-repeat="allpincode in allpincodes" ng-click="goPinto(allpincode);">{{allpincode.name}}, {{allpincode.po}}, {{allpincode.city}}</ion-item>
+
+            <ion-item ng-if="allpincodes.length == 0">No data found.</ion-item>
+
         </ion-list>
     </ion-content>
 </ion-modal-view>

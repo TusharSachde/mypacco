@@ -113,11 +113,11 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         $scope.jstoragedata.finaldate = $filter('date')($scope.today, "dd.MM.yyyy");
         MyServices.fincalpinjsrotage($scope.jstoragedata);
 
-        if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode')) {
+        if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode' || $scope.country )) {
             $location.url('app/home/details');
         } else {
             var myPopup = $ionicPopup.show({
-                title: 'Pincode not selected',
+                title: 'From/To not selected',
                 scope: $scope,
             });
             $timeout(function() {
@@ -188,13 +188,13 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log($scope.doin);
         console.log("jstorage");
         if (details.ParcelType == "2") {
-            details.weight = 1;
+            details.weight = '';
         } else {
-            details.weight1 = 1;
-            details.sizeH = 1;
-            details.sizeL = 1;
-            details.value = 1;
-            details.sizeW = 1;
+            details.weight1 = '';
+            details.sizeH = '';
+            details.sizeL = '';
+            details.value = '';
+            details.sizeW = '';
         }
         details.DeliveryType = $scope.doin.DeliveryType;
         details.FromPincode = $scope.doin.finalpin;
@@ -315,7 +315,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log('Popup');
         var alertPopup = $ionicPopup.alert({
             title: 'Information',
-            template: '<strong>Actual Weight&nbsp:</strong><br><strong>Min. Chargable Weight:</strong>'+$scope.quotes[0].minchrgwt+'<br><strong>Amount:</strong><br><strong>S.T:</strong><br><strong>Total:</strong>',
+            template: '<strong>Actual Weight&nbsp:</strong><br><strong>Min. Chargable Weight:</strong>' + $scope.quotes[0].minchrgwt + '<br><strong>Amount:</strong><br><strong>S.T:</strong><br><strong>Total:</strong>',
             buttons: [{
                 text: 'Ok',
                 type: 'button-calm',
