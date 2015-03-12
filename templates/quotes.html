@@ -4,22 +4,19 @@
         <div class="list border-round shadow-bottom">
             <div class="text-center">
                 <h4>Comparative Quotes</h4>
-                <p class="small">We found {{quotes.length}} Services from Rs.19 onwards.
+                <p class="small">We found {{quotes.length}} Services from {{quotes[0].CurrencySymbol}} {{quotes[0].TotalAmount}} onwards.
                     <br>Select anyone from below and press book now.</p>
             </div>
 
-            <label class="item item-radio" ng-repeat="quote in quotes" ng-click="radiockick(quote)">
+            <label class="item item-radio" ng-repeat="quote in quotes" ng-click="radiockick(quote);">
                 <input type="radio" name="group">
                 <div class="item-thumbnail-left item-content item-text-wrap">
                     <img src="{{quote.LogoImage | imagepath}}">
-<!--                    <h2>Professional Courier (INR 19)</h2>-->
-                    <h2>{{quote.VendorService}} ( {{quote.CurrencySymbol}} {{quote.TotalAmount}} )</h2>
-                    <p>{{quote.ExtraInfo}}</p>
-                    <p class="rating"><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i><i class="icon ion-android-star"></i>
-                    </p>
+                    <h2>{{quote.VendorName}} ( {{quote.CurrencySymbol}} {{quote.TotalAmount}} )</h2>
+                    <p>{{quote.VendorService}} <br>{{quote.ExtraInfo}}</p>
+                    <rating ng-model="quote.Rating" max="5"></rating>
                     <span class="assertive small" ng-if="quote.CopAllowed==1">CASH ON PICKUP</span>
-                    <button ng-if="quote.CopAllowed==1" href="" class="button button-clear button-small button-assertive"><i class="icon ion-information-circled"></i>
-                    </button>
+                    <button ng-click="showInfo();$event.stopPropagation();" class="button button-clear button-small button-assertive"><i class="icon ion-information-circled"></i></button>
                 </div>
                 <i class="radio-icon ion-checkmark"></i>
             </label>

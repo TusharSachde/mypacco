@@ -83,7 +83,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     //Login    
     .state('login', {
         url: "/login",
@@ -95,6 +95,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: "/register",
         templateUrl: "templates/register.html",
         controller: 'LoginCtrl'
+    })
+
+
+    //Other Static Pages
+
+    .state('app.contact', {
+        url: "/contact",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/contact.html"
+            }
+        }
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

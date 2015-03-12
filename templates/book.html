@@ -9,20 +9,20 @@
                 <span class="input-label">Company</span>
                 <input type="text" ng-model="book.FromCompany">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Name</span>
+            <label class="item item-input" ng-class="allvalidation[0].validation">
+                <span class="input-label">Name*</span>
                 <input type="text" ng-model="book.FromName" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Mobile</span>
+            <label class="item item-input" ng-class="allvalidation[1].validation">
+                <span class="input-label">Mobile*</span>
                 <input type="tel" ng-model="book.FromMobile" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Email</span>
+            <label class="item item-input" ng-class="allvalidation[2].validation">
+                <span class="input-label">Email*</span>
                 <input type="email" ng-model="book.FromEmail" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Address 1</span>
+            <label class="item item-input" ng-class="allvalidation[3].validation">
+                <span class="input-label">Address 1*</span>
                 <input type="text" ng-model="book.FromAddress1" required>
             </label>
             <label class="item item-input">
@@ -35,23 +35,23 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">Area</span>
-                <input type="text" ng-model="book.FromSuburb">
+                <input type="text" ng-model="book.fpo">
             </label>
             <label class="item item-input">
                 <span class="input-label">City</span>
-                <input type="text" ng-model="book.fcity" required>
+                <input type="text" ng-model="book.fcity">
             </label>
             <label class="item item-input">
                 <span class="input-label">Pin</span>
-                <input type="text" ng-model="book.fpincode" required>
+                <input type="text" ng-model="book.fpincode">
             </label>
             <label class="item item-input">
                 <span class="input-label">State</span>
-                <input type="text" ng-model="book.fstate" required>
+                <input type="text" ng-model="book.fstate">
             </label>
             <label class="item item-input">
                 <span class="input-label">Country</span>
-                <input type="text" ng-model="book.fpincountry" required>
+                <input type="text" ng-model="book.fpincountry">
             </label>
         </div>
            
@@ -63,20 +63,20 @@
                 <span class="input-label">Company</span>
                 <input type="text" ng-model="book.ToCompany">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Name</span>
+            <label class="item item-input"  ng-class="allvalidation[4].validation">
+                <span class="input-label">Name*</span>
                 <input type="text" ng-model="book.ToName" required>
             </label>
-            <label class="item item-input">
-                <span class="input-label">Mobile</span>
+            <label class="item item-input" ng-class="allvalidation[5].validation">
+                <span class="input-label">Mobile*</span>
                 <input type="tel" ng-model="book.ToMobile" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Email</span>
-                <input type="email" ng-model="book.ToEmail" required>
+                <input type="email" ng-model="book.ToEmail">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Address 1</span>
+            <label class="item item-input" ng-class="allvalidation[6].validation">
+                <span class="input-label">Address 1*</span>
                 <input type="text" ng-model="book.ToAddress1" required>
             </label>
             <label class="item item-input">
@@ -89,28 +89,27 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">Area</span>
-                <input type="text" ng-model="book.ToSuburb">
+                <input type="text" ng-model="book.tpo">
             </label>
             <label class="item item-input">
                 <span class="input-label">City</span>
-                <input type="text" ng-model="book.tcity" required>
+                <input type="text" ng-model="book.tcity">
             </label>
             <label class="item item-input">
                 <span class="input-label">Pin</span>
-                <input type="text" ng-model="book.tpincode" required>
+                <input type="text" ng-model="book.tpincode">
             </label>
             <label class="item item-input">
                 <span class="input-label">State</span>
-                <input type="text" ng-model="book.tstate" required>
+                <input type="text" ng-model="book.tstate">
             </label>
             <label class="item item-input">
                 <span class="input-label">Country</span>
-                <input type="text" ng-model="book.tpincountry" required>
+                <input type="text" ng-model="book.tpincountry">
             </label>
         </div>
 
-<!--        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details/quotes/book/summary">Confirm &amp; Proceed</a>-->
-        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-click="savebook(book)">Confirm &amp; Proceed</a>
+        <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-click="savebook(book);">Confirm &amp; Proceed</a>
 
 
     </ion-content>

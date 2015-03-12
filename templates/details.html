@@ -11,9 +11,9 @@
             <div class="text-center">
                 <h4>Document Detail</h4>
             </div>
-            <label class="item item-input item-select">
+            <label class="item item-input item-select" ng-class="allvalidation[0].validation">
                 <span class="input-label">Weight (gm)</span>
-                <select ng-model="details.weight" ng-class="allvalidation[0].validation" required>
+                <select ng-model="details.weight" required>
                     <option value="250">250</option>
                     <option value="500">500</option>
                     <option value="750">750</option>
@@ -32,13 +32,9 @@
             <div class="text-center">
                 <h4>Parcel Detail</h4>
             </div>
-            <label class="item item-input">
-                <span class="input-label">Description</span>
-                <input type="text" ng-model="details.description">
-            </label>
-            <label class="item item-input item-select">
+            <label class="item item-input item-select" ng-class="allvalidation[0].validation">
                 <span class="input-label">Weight (kg)</span>
-                <select ng-model="details.weight1" ng-class="allvalidation[0].validation" required>
+                <select ng-model="details.weight1"  required>
                     <option value="0.5">0.5</option>
                     <option value="1">1</option>
                     <option value="1.5">1.5</option>
@@ -101,21 +97,21 @@
                     <option value="30">30</option>
                 </select>
             </label>
-            <label class="item item-input">
+            <label class="item item-input" ng-class="allvalidation[1].validation">
                 <span class="input-label">Length (cm)</span>
-                <input type="number" ng-model="details.sizeL" ng-class="allvalidation[1].validation" required>
+                <input type="number" ng-model="details.sizeL" required>
             </label>
-            <label class="item item-input">
+            <label class="item item-input" ng-class="allvalidation[2].validation">
                 <span class="input-label">Width (cm)</span>
-                <input type="number" ng-model="details.sizeW" ng-class="allvalidation[2].validation" required>
+                <input type="number" ng-model="details.sizeW" required>
             </label>
-            <label class="item item-input">
+            <label class="item item-input" ng-class="allvalidation[3].validation">
                 <span class="input-label">Height (cm)</span>
-                <input type="number" ng-model="details.sizeH" ng-class="allvalidation[3].validation" required>
+                <input type="number" ng-model="details.sizeH" required>
             </label>
-            <label class="item item-input">
+            <label class="item item-input" ng-class="allvalidation[4].validation">
                 <span class="input-label">Value (INR)</span>
-                <input type="text" ng-model="details.value" ng-class="allvalidation[4].validation" required>
+                <input type="text" ng-model="details.value" required>
             </label>
         </div>
 

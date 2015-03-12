@@ -15,32 +15,29 @@
             <ion-item class="bold">Total (Inclusive of all Tax)
                 <span class="item-note dark">{{book.Price}}</span>
             </ion-item>
-            
+
             <div class="item-divider">Delivery Details</div>
-            <div class="row item">
-                <div class="col">
-                    <span class="bold">Sender (Pickup From)</span> 
-                    <br>{{book.PF_Name}}
-                    <br>{{book.PF_Telephone}}
-                    <br>{{book.PF_Email}}
-                    <br>{{book.PF_Add1}}
-                    <br>
-                    <br>{{book.fcity}} {{book.fpincode}}
-                    <br>{{book.fstate}}
-                    <br>{{book.fpincountry}}
-
-                </div>
-                <div class="col"><span class="bold">Receiver (Deliver To)</span> 
-                    <br>{{book.DT_Name}}
-                    <br>{{book.DT_Telephone}}
-                    <br>{{book.DT_Email}}
-                    <br>{{book.DT_Add1}}
-                    <br>
-                    <br>{{book.tcity}} {{book.tpincode}}
-                    <br>{{book.tstate}}
-                    <br>{{book.tpincountry}}
-
-                </div>
+            <div class="item">
+                <span class="bold">Sender (Pickup From)</span> 
+                <br>{{book.PF_Name}}
+                <br>{{book.PF_Telephone}}
+                <br>{{book.PF_Email}}
+                <br>{{book.PF_Add1}}
+                <br>
+                <br>{{book.fcity}} {{book.fpincode}}
+                <br>{{book.fstate}}
+                <br>{{book.fpincountry}}
+                <br>
+                <br>
+                <span class="bold">Receiver (Deliver To)</span> 
+                <br>{{book.DT_Name}}
+                <br>{{book.DT_Telephone}}
+                <br>{{book.DT_Email}}
+                <br>{{book.DT_Add1}}
+                <br>
+                <br>{{book.tcity}} {{book.tpincode}}
+                <br>{{book.tstate}}
+                <br>{{book.tpincountry}}
             </div>
 
             <div class="item-divider">Parcel Details</div>
@@ -50,7 +47,7 @@
             </ion-item>
             <ion-item ng-if="book.ServiceTypeId==2">Weight<span class="item-note dark">{{parcel.Weight}} Gm Size {{parcel.SizeL}} X {{parcel.SizeW}} X {{parcel.SizeH}} CM</span>
             </ion-item>
-            
+
             <div class="item-divider">Terms &amp; Conditions</div>
             <ion-item class="item-checkbox" ng-init="agree=true">
                 <label class="checkbox">
@@ -63,7 +60,7 @@
         </ion-list>
 
         <div class="padding-horizontal">
-<!--            <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details/quotes/book/summary">Proceed to Pay</a>-->
+            <!--            <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" href="#/app/home/details/quotes/book/summary">Proceed to Pay</a>-->
             <a class="button button-balanced button-outline button-block icon-right ion-chevron-right" ng-disabled="agree" ng-click="gotopayment()">Proceed to Pay</a>
         </div>
 
