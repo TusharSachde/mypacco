@@ -189,9 +189,48 @@ angular.module('starter.controllers', ['myservices', 'base64'])
             
         }
             
+		$scope.allvalidation = [];
 		details.PickDate = $scope.doin.finaldate;
 		console.log(details);
-		MyServices.saveorder(details).success(ordersuccess);
+		if(details.ParcelType == "2"){
+			
+			// VALIDATION
+			
+            $scope.allvalidation = [{
+                field: $scope.details.weight1,
+                validation: ""
+            }, {
+                field: $scope.details.sizeL,
+                validation: ""
+            }, {
+                field: $scope.details.sizeW,
+                validation: ""
+            }, {
+                field: $scope.details.sizeH,
+                validation: ""
+            }, {
+                field: $scope.details.value,
+                validation: ""
+            }];
+            var check = formvalidation($scope.allvalidation);
+            console.log(check);
+            if (check) {
+                MyServices.saveorder(details).success(ordersuccess);
+            }
+		}else{
+			// VALIDATION
+			
+            $scope.allvalidation = [{
+                field: $scope.details.weight,
+                validation: ""
+            }];
+            var check = formvalidation($scope.allvalidation);
+            console.log(check);
+            if (check) {
+                MyServices.saveorder(details).success(ordersuccess);
+            }
+		}
+//		MyServices.saveorder(details).success(ordersuccess);
 	}
 })
 
@@ -317,6 +356,7 @@ angular.module('starter.controllers', ['myservices', 'base64'])
             $location.url("/app/home/details/quotes/book/summary");
             MyServices.getparcelsummary().success(booksuccesssummary);
         }else{
+			console.log("error in processing");
              var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
                 template: 'Error In Processing'

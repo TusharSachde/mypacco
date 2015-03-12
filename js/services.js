@@ -500,6 +500,7 @@ var myservices = angular.module('myservices', [])
                                  "DeliveryType": details.DeliveryType, //1 : domestic 2: international
                                  "FromPincode": details.FromPincode,
                                  "ToPincode": details.ToPincode,
+								 "Country": details.country,
                                  "PickDate": details.PickDate,
                                  "CurrencyId": 1,
                                  "ParcelType": details.ParcelType, //1 :document 2 : parcel

@@ -13,7 +13,7 @@
             </div>
             <label class="item item-input item-select">
                 <span class="input-label">Weight (gm)</span>
-                <select ng-model="details.weight">
+                <select ng-model="details.weight" ng-class="allvalidation[0].validation" required>
                     <option value="250">250</option>
                     <option value="500">500</option>
                     <option value="750">750</option>
@@ -38,7 +38,7 @@
             </label>
             <label class="item item-input item-select">
                 <span class="input-label">Weight (kg)</span>
-                <select ng-model="details.weight1">
+                <select ng-model="details.weight1" ng-class="allvalidation[0].validation" required>
                     <option value="0.5">0.5</option>
                     <option value="1">1</option>
                     <option value="1.5">1.5</option>
@@ -103,19 +103,19 @@
             </label>
             <label class="item item-input">
                 <span class="input-label">Length (cm)</span>
-                <input type="number" ng-model="details.sizeL">
+                <input type="number" ng-model="details.sizeL" ng-class="allvalidation[1].validation" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Width (cm)</span>
-                <input type="number" ng-model="details.sizeW">
+                <input type="number" ng-model="details.sizeW" ng-class="allvalidation[2].validation" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Height (cm)</span>
-                <input type="number" ng-model="details.sizeH">
+                <input type="number" ng-model="details.sizeH" ng-class="allvalidation[3].validation" required>
             </label>
             <label class="item item-input">
                 <span class="input-label">Value (INR)</span>
-                <input type="text" ng-model="details.value">
+                <input type="text" ng-model="details.value" ng-class="allvalidation[4].validation" required>
             </label>
         </div>
 
