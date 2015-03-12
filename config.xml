@@ -31,7 +31,7 @@
     <preference name="KeepRunning" value="true" />
     <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
