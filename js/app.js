@@ -15,14 +15,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
+            StatusBar.overlaysWebView(true);
+            StatusBar.styleLightContent();
         }
     });
 
-    if (window.StatusBar) {
-        StatusBar.overlaysWebView(true);
-        StatusBar.styleLightContent();
-    }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
