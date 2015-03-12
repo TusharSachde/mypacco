@@ -32,7 +32,7 @@
     <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
     <icon src="img/icon.png" />

@@ -185,7 +185,6 @@
 }
 /*Jhol with IONIC*/
 
-/*
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {
     margin-top: 0px
 }
@@ -197,7 +196,7 @@
 .platform-ios.platform-cordova:not(.fullscreen) .tabs-top>.tabs,
 .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
     top: 44px
-*/
+
 }
 /*Jhol with IONIC*/
 

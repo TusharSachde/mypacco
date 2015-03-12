@@ -18,6 +18,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             StatusBar.styleDefault();
         }
     });
+
+    if (window.StatusBar) {
+        StatusBar.overlaysWebView(true);
+        StatusBar.styleLightContent();
+    }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -126,7 +131,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.track', {
         url: "/track",
         views: {
