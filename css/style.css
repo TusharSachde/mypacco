@@ -215,3 +215,17 @@ ul.rating li {
     background-size: 100%;
     background-repeat: no-repeat;
 }
+.text-justify {
+    text-align: justify;
+}
+.font-11>*,
+.font-11 {
+    font-size: 11px;
+}
+.info-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9;
+}
+.info-holder {position: relative;}

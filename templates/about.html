@@ -1,0 +1,55 @@
+<ion-view view-title="About Us">
+    <ion-content class="has-header padding">
+
+        <div class="button-bar margin-bottom font-11">
+            <button class="button button-calm" ng-click="about = true;" ng-class="{checked : about}">Overview</button>
+            <button class="button button-calm" ng-click="about = false;" ng-class="{checked : !about}">Founders and Advisors</button>
+        </div>
+
+        <div class="text-justify" ng-show="about">
+            <p>
+                MYPACCO launches as the first-of-its-kind online platform that seeks to revolutionize the courier industry in India bringing ease to the customer to send their documents or parcels anywhere in India or world by simply: Compare, Book and Send.
+            </p>
+            <p>Built on 3 foundation pillars: Discovery, Transparency and Ease: Discovery - of service providers Transparency - of prices and offerings Ease - of transacting and sending a parcel
+                <p>The platform serves as an efficient and hassle-free medium for customers to get access to different courier companies under one roof virtually, and send mail or parcels from anywhere in India to anywhere in the world by booking an order online. Customers can first compare the services of different courier companies on the portal and then book an order based on their specific requirements and budget. Thereafter, the concerned service provider collects the parcel from the customer's doorstep and delivers it to the specified address. In addition it offers value added services like documentation and packaging guidelines, which helps save valuable time and effort and makes the otherwise cumbersome process a smooth sailing for them. Customers can also track the status of their parcel anytime by logging in to the portal.
+                </p>
+        </div>
+
+        <div class="text-center" ng-hide="about">
+            <div class="row">
+                <div class="col">
+                    <img src="img/vinay.jpg" alt="" class="full-image">
+                    <span class="bold">Vinay Bhartia</span>
+                    <br>Co-Founder &amp; CEO</div>
+                <div class="col">
+                    <img src="img/mukesh.jpg" alt="" class="full-image">
+                    <span class="bold">Mukesh Agarwal</span>
+                    <br>Co-Founder
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="img/prashant.jpg" alt="" class="full-image">
+                    <span class="bold">Prashant Desai</span>
+                    <br>MD &amp; CEO, Financial Technologies
+                </div>
+                <div class="col">
+                    <img src="img/rajeev.jpg" alt="" class="full-image">
+                    <span class="bold">Rajeev Rajadhyaksha</span>
+                    <br>Chief Mentor and Advisor
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="img/anirudh.jpg" alt="" class="full-image">
+                    <span class="bold">Anirudh Bhuwalka</span>
+                    <br>MD &amp; CEO at AMW Motors Limited
+                </div>
+                <div class="col">
+                    <img src="img/manish.jpg" alt="" class="full-image">
+                    <span class="bold">Manish Vij</span>
+                    <br>Serial Entrepreneur &amp; Investor
+                </div>
+    </ion-content>
+</ion-view>

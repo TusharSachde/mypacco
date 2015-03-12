@@ -8,18 +8,20 @@
                     <br>Select anyone from below and press book now.</p>
             </div>
 
-            <label class="item item-radio" ng-repeat="quote in quotes" ng-click="radiockick(quote);">
-                <input type="radio" name="group">
-                <div class="item-thumbnail-left item-content item-text-wrap">
-                    <img src="{{quote.LogoImage | imagepath}}">
-                    <h2>{{quote.VendorName}} ( {{quote.CurrencySymbol}} {{quote.TotalAmount}} )</h2>
-                    <p>{{quote.VendorService}} <br>{{quote.ExtraInfo}}</p>
-                    <rating ng-model="quote.Rating" max="5"></rating>
-                    <span class="assertive small" ng-if="quote.CopAllowed==1">CASH ON PICKUP</span>
-                    <button ng-click="showInfo();$event.stopPropagation();" class="button button-clear button-small button-assertive"><i class="icon ion-information-circled"></i></button>
-                </div>
-                <i class="radio-icon ion-checkmark"></i>
-            </label>
+            <div ng-repeat="quote in quotes" class="info-holder">
+                <label class="item item-radio" ng-click="radiockick(quote);">
+                    <input type="radio" name="group">
+                    <div class="item-thumbnail-left item-content item-text-wrap">
+                        <img src="{{quote.LogoImage | imagepath}}">
+                        <h2>{{quote.VendorName}} ( {{quote.CurrencySymbol}} {{quote.TotalAmount}} )</h2>
+                        <p>{{quote.VendorService}} <br>{{quote.ExtraInfo}}</p>
+                        <rating ng-model="quote.Rating" max="5"></rating>
+                        <span class="assertive small" ng-if="quote.CopAllowed==1">CASH ON PICKUP</span>
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <button ng-click="showInfo()" class="button button-clear button-small button-assertive info-btn"><i class="icon ion-information-circled"></i></button>
+            </div>
 
         </div>
     </ion-content>

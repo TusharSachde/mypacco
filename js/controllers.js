@@ -2,7 +2,11 @@ var ref = 0;
 angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+    $scope.about = true;
+})
 
+.controller('TrackCtrl', function($scope, $ionicModal, $timeout) {
+    $scope.about = true;
 })
 
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout) {
@@ -311,7 +315,11 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log('Popup');
         var alertPopup = $ionicPopup.alert({
             title: 'Information',
-            template: '<strong>Actual Weight&nbsp:</strong><br><strong>Min. Chargable Weight:</strong><br><strong>Amount:</strong><br><strong>S.T:</strong><br><strong>Total:</strong>'
+            template: '<strong>Actual Weight&nbsp:</strong><br><strong>Min. Chargable Weight:</strong>'+$scope.quotes[0].minchrgwt+'<br><strong>Amount:</strong><br><strong>S.T:</strong><br><strong>Total:</strong>',
+            buttons: [{
+                text: 'Ok',
+                type: 'button-calm',
+            }]
         });
         alertPopup.then(function(res) {});
     };
@@ -321,7 +329,6 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
     $scope.book = [];
     $scope.parcel = [];
-
     //Validations
     $scope.allvalidation = [];
 

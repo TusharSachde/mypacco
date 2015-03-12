@@ -107,6 +107,34 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 templateUrl: "templates/contact.html"
             }
         }
+    })
+
+    .state('app.about', {
+        url: "/about",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/about.html"
+            }
+        }
+    })
+
+    .state('app.tools', {
+        url: "/tools",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/tools.html"
+            }
+        }
+    })
+    
+    .state('app.track', {
+        url: "/track",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/track.html",
+                controller: 'TrackCtrl'
+            }
+        }
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home');

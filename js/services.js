@@ -243,7 +243,7 @@ var myservices = angular.module('myservices', [])
                             "FromAddress2": book.FromAddress2,
                             "ToAddress2": book.ToAddress2,
                             "FromLandmark": book.FromLandmark,
-                            "ToLandmark": book.ToLandmark
+                            "ToLandmark": book.ToLandmark,
 //                            "FromSuburb": "dsf",
 //                            "ToSuburb": "sdf",
 //                            "fcity": "Ahmedabad",
@@ -260,8 +260,8 @@ var myservices = angular.module('myservices', [])
 //                            "PickDate": "30.12.2014",
 //                            "WeightUnit": "Kg",
 //                            "LengthUnit": "CM",
-//                            "fpo": "naranpura",
-//                            "tpo": "naranpura"
+                            "fpo": book.fpo,
+                            "tpo": book.tpo
                         }
                     }
                 }
