@@ -17,7 +17,6 @@
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="true" />
-    <preference name="ios-statusbarstyle" value="default" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="EnableViewportScale" value="true" />
@@ -32,6 +31,9 @@
     <preference name="KeepRunning" value="true" />
     <preference name="LoadUrlTimeoutValue" value="20000" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 
     <icon src="img/icon.png" />
 
@@ -39,7 +41,17 @@
     <gap:splash src="screen/screen-port-ldpi.png" gap:platform="android" density="port-ldpi" />
     <gap:splash src="screen/screen-port-mdpi.png" gap:platform="android" density="port-mdpi" />
     <gap:splash src="screen/screen-port-xhdpi.png" gap:platform="android" density="port-xhdpi" />
+    
     <gap:splash src="screen/splash-iphone.png" />
+
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="640" height="960" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="1536" height="2048" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="320" height="568" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="750" height="1334" />
+    <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="1242" height="2208" />
 
     <access origin="*" />
 
