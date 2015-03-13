@@ -85,6 +85,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+    .state('app.thankyou', {
+        url: "/home/details/quotes/book/summary/thankyou",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/thankyou.html",
+                controller: 'ThankyouCtrl'
+
+            }
+        }
+    })
 
     //Login    
     .state('login', {

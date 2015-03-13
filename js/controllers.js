@@ -13,6 +13,10 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
 })
 
+.controller('ThankyouCtrl', function($scope, $ionicModal, $timeout) {
+
+})
+
 .controller('HomeCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading, $location, $filter, $ionicPopup, $timeout) {
     $scope.today = new Date();
     $scope.domestic = true;
@@ -113,7 +117,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         $scope.jstoragedata.finaldate = $filter('date')($scope.today, "dd.MM.yyyy");
         MyServices.fincalpinjsrotage($scope.jstoragedata);
 
-        if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode' || $scope.country )) {
+        if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode' || $scope.country)) {
             $location.url('app/home/details');
         } else {
             var myPopup = $ionicPopup.show({
@@ -341,12 +345,12 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     var onpayment = function(data, status) {
         console.log("on payment success");
         console.log(data.Data.Data[0]);
-		if(data.Data.Data[0]=="InProgress"){
-			var alertPopup = $ionicPopup.alert({
+        if (data.Data.Data[0] == "InProgress") {
+            var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
                 template: 'Payment Getway mechanism'
             });
-		}
+        }
     }
 
     $scope.gotopayment = function() {
@@ -360,7 +364,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
         //        stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function(event) {
-            
+
             MyServices.getparcelsummary().success(onpayment);
             //            $interval.cancel(stopinterval);
         });
