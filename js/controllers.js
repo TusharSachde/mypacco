@@ -341,7 +341,12 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     var onpayment = function(data, status) {
         console.log("on payment success");
         console.log(data.Data.Data[0]);
-//		if(data.Data.Data[0];)
+		if(data.Data.Data[0]=="InProgress"){
+			var alertPopup = $ionicPopup.alert({
+                title: 'MyPacco',
+                template: 'Payment Getway mechanism'
+            });
+		}
     }
 
     $scope.gotopayment = function() {
@@ -355,10 +360,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
         //        stopinterval = $interval(callAtIntervaltwitter, 2000);
         ref.addEventListener('exit', function(event) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'MyPacco',
-                template: 'Payment done'
-            });
+            
             MyServices.getparcelsummary().success(onpayment);
             //            $interval.cancel(stopinterval);
         });
