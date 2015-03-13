@@ -345,7 +345,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     var onpayment = function(data, status) {
         console.log("on payment success");
         console.log(data.Data.Data[0]);
-        if (data.Data.Data[0] == "InProgress") {
+        if (data.Data.Data[0].OrderStatus == "InProgress") {
             var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
                 template: 'Payment Getway mechanism'
