@@ -441,7 +441,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
         } else {
             if (data.Data[0].TransactionMessage == "Transaction Successful" && data.Data[0].TransactionStatus == "SUCCESS") {
-                ref.close();
+                //ref.close();
                 $interval.cancel(stopinterval);
                 $location.url("/app/home/details/quotes/book/summary/thankyou")
                 //				var alertPopup = $ionicPopup.alert({
@@ -449,7 +449,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
                 //					template: 'Transaction Successful'
                 //				});
             } else {
-                ref.close();
+                //ref.close();
                 $interval.cancel(stopinterval);
                 var alertPopup = $ionicPopup.alert({
                     title: 'Transaction Error',
