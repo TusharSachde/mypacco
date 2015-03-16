@@ -10,7 +10,7 @@
         <ion-list>
             <form class="item item-input-inset only-horizontal" ng-submit="doSearch(datasearch);">
                 <label class="item-input-wrapper">
-                    <input type="text" placeholder="Search Pincode, City" ng-model="datasearch">
+                    <input type="text" placeholder="Search Pincode, City" ng-model="datasearch" ng-change="doSearch(datasearch);">
                 </label>
                 <button class="button button-icon ion-search" type="submit"></button>
             </form>

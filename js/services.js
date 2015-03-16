@@ -16,8 +16,8 @@ var myservices = angular.module('myservices', [])
             })
         },
 
-        getpincode: function(pin) {
-            return $http({
+        getpincode: function(pin,num,callback) {
+            $http({
                 url: adminurl + "pincodelist",
                 method: "POST",
                 data: {
@@ -28,7 +28,9 @@ var myservices = angular.module('myservices', [])
                         "q": pin
                     }
                 }
-            })
+            }).success(function(data) {
+                callback(data,num); 
+            });
         },
 
         getcurrency: function() {

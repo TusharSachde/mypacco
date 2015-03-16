@@ -85,18 +85,25 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     };
     MyServices.getcountrylist().success(contsucess);
 
-    var pincodesucess = function(data, status) {
-        $scope.allpincodes = data.Data;
-        console.log(data);
-        $ionicLoading.hide();
+    var pinnum = 0;
+    var pincodesucess = function(data, num) {
+        if (num == pinnum) {
+            $scope.allpincodes = data.Data;
+            console.log(data);
+        }
+        //$ionicLoading.hide();
     };
 
     var pin1 = $scope.datasearch;
     $scope.doSearch = function(pin1) {
-        MyServices.getpincode(pin1).success(pincodesucess);
-        $ionicLoading.show({
-            template: 'Please wait...'
-        });
+        if (pin1.length < 3) {
+            return false;
+        }
+        pinnum++;
+        MyServices.getpincode(pin1, pinnum,pincodesucess);
+        //        $ionicLoading.show({
+        //            template: 'Please wait...'
+        //        });
     };
 
 
@@ -117,34 +124,33 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         $scope.jstoragedata.finaldate = $filter('date')($scope.today, "dd.MM.yyyy");
         MyServices.fincalpinjsrotage($scope.jstoragedata);
 
-		if($scope.domestic == true)
-		{
-			if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode')) {
-				$location.url('app/home/details');
-			} else {
-					var myPopup = $ionicPopup.show({
-						title: 'From/To not selected',
-						scope: $scope,
-					});
-					$timeout(function() {
-						myPopup.close(); //close the popup after 3 seconds for some reason
-					}, 1500);
-			}
-		}else{
-			console.log($scope.jstoragedata.country);
-			if (!($scope.pinfrom == 'Select pincode') && $scope.jstoragedata.country) {
-				$location.url('app/home/details');
-			} else {
-					var myPopup = $ionicPopup.show({
-						title: 'From/Country not selected',
-						scope: $scope,
-					});
-					$timeout(function() {
-						myPopup.close(); //close the popup after 3 seconds for some reason
-					}, 1500);
-			}
-		}
-		}
+        if ($scope.domestic == true) {
+            if (!($scope.pinfrom == 'Select pincode') && !($scope.pinto == 'Select pincode')) {
+                $location.url('app/home/details');
+            } else {
+                var myPopup = $ionicPopup.show({
+                    title: 'From/To not selected',
+                    scope: $scope,
+                });
+                $timeout(function() {
+                    myPopup.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+        } else {
+            console.log($scope.jstoragedata.country);
+            if (!($scope.pinfrom == 'Select pincode') && $scope.jstoragedata.country) {
+                $location.url('app/home/details');
+            } else {
+                var myPopup = $ionicPopup.show({
+                    title: 'From/Country not selected',
+                    scope: $scope,
+                });
+                $timeout(function() {
+                    myPopup.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+        }
+    }
 
 
     // DEMESTIC
@@ -355,72 +361,71 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
 
     // PAYMENT GETWAY
-	var stopinterval = 0;
-	
+    var stopinterval = 0;
+
     var paymentsuccess = function(data, status) {
         console.log(data);
     }
 
-//    var onpayment = function(data, status) {
-//        console.log("on payment success");
-//        console.log(data.Data.Data[0]);
-//        if (data.Data.Data[0].OrderStatus == "InProgress") {
-//            var alertPopup = $ionicPopup.alert({
-//                title: 'MyPacco',
-//                template: 'Error In Payment Getway mechanism'
-//            });
-//        }
-//    }
+    //    var onpayment = function(data, status) {
+    //        console.log("on payment success");
+    //        console.log(data.Data.Data[0]);
+    //        if (data.Data.Data[0].OrderStatus == "InProgress") {
+    //            var alertPopup = $ionicPopup.alert({
+    //                title: 'MyPacco',
+    //                template: 'Error In Payment Getway mechanism'
+    //            });
+    //        }
+    //    }
 
-	
-	var transactionsuccess = function (data, status){
-		console.log(data.Data);
-        if (data.Data=='') {
+
+    var transactionsuccess = function(data, status) {
+        console.log(data.Data);
+        if (data.Data == '') {
             console.log("Do nothing");
-			 var alertPopup = $ionicPopup.alert({
+            var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
                 template: 'Error In Payment Getway mechanism'
             });
-			$interval.cancel(stopinterval);
-			ref.close();
+            $interval.cancel(stopinterval);
+            ref.close();
         } else {
-			if(data.Data[0].TransactionMessage=="Transaction Successful" && data.Data[0].TransactionStatus=="SUCCESS")
-			{
-				ref.close();
-            	$interval.cancel(stopinterval);
-				$location.url("/app/home/details/quotes/book/summary/thankyou")
-//				var alertPopup = $ionicPopup.alert({
-//					title: 'MyPacco',
-//					template: 'Transaction Successful'
-//				});
-			}else{
-				ref.close();
-            	$interval.cancel(stopinterval);
-				var alertPopup = $ionicPopup.alert({
-					title: 'Transaction Error',
-					template: data.Data[0].TransactionMessage
-				});
-			}
-            
-			
+            if (data.Data[0].TransactionMessage == "Transaction Successful" && data.Data[0].TransactionStatus == "SUCCESS") {
+                ref.close();
+                $interval.cancel(stopinterval);
+                $location.url("/app/home/details/quotes/book/summary/thankyou")
+                //				var alertPopup = $ionicPopup.alert({
+                //					title: 'MyPacco',
+                //					template: 'Transaction Successful'
+                //				});
+            } else {
+                ref.close();
+                $interval.cancel(stopinterval);
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Transaction Error',
+                    template: data.Data[0].TransactionMessage
+                });
+            }
+
+
         }
-	}
-	
-	var callAtIntervalOrder = function () {
-		MyServices.getTransactionStatus().success(transactionsuccess);
-	}
-	
-	
+    }
+
+    var callAtIntervalOrder = function() {
+        MyServices.getTransactionStatus().success(transactionsuccess);
+    }
+
+
     $scope.gotopayment = function() {
-		
-		
-		var orderid = $base64.encode($.jStorage.get("orderid"));
+
+
+        var orderid = $base64.encode($.jStorage.get("orderid"));
         orderid = orderid.substr(0, orderid.length - 2);
         var abc = window.location.origin + window.location.pathname + "success.html";
         ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
-       	stopinterval = $interval(callAtIntervalOrder, 2000);
+        stopinterval = $interval(callAtIntervalOrder, 2000);
         ref.addEventListener('exit', function(event) {
-			console.log("on exit");
+            console.log("on exit");
             MyServices.getparcelsummary().success(onpayment);
             $interval.cancel(stopinterval);
         });
