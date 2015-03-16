@@ -96,6 +96,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
     //Rest Services
 
+    var lasttime = 0;
     //Country List
     var contsucess = function(data, status) {
         $scope.allcountries = data.Data;
@@ -112,14 +113,33 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         }
         //$ionicLoading.hide();
     };
-
+    var textpin = 0;
     var pin1 = $scope.datasearch;
+    var pinsearchstart = function() {
+        var d = new Date();
+        var newlasttime = d.getTime() - 990;
+        if (newlasttime > lasttime) {
+            //$timeout.cancel(pinsearchstart);
+            //console.log("AJAX CALL");
+            pinnum++;
+            if (textpin.length > 3) {
+                MyServices.getpincode(textpin, pinnum, pincodesucess);
+            }
+
+        }
+    };
+
     $scope.doSearch = function(pin1) {
         if (pin1.length < 3) {
             return false;
         }
-        pinnum++;
-        MyServices.getpincode(pin1, pinnum, pincodesucess);
+        textpin = pin1;
+
+        var d = new Date();
+        lasttime = d.getTime();
+
+        $timeout(pinsearchstart, 1000);
+
         //        $ionicLoading.show({
         //            template: 'Please wait...'
         //        });
@@ -411,12 +431,12 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log(data.Data);
         if (data.Data == '') {
             console.log("Do nothing");
-            var alertPopup = $ionicPopup.alert({
-                title: 'MyPacco',
-                template: 'Error In Payment Getway mechanism'
-            });
-            $interval.cancel(stopinterval);
-            ref.close();
+            //            var alertPopup = $ionicPopup.alert({
+            //                title: 'MyPacco',
+            //                template: 'Error In Payment Getway mechanism'
+            //            });
+            //            $interval.cancel(stopinterval);
+            //            ref.close();
 
         } else {
             if (data.Data[0].TransactionMessage == "Transaction Successful" && data.Data[0].TransactionStatus == "SUCCESS") {
