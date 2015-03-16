@@ -14,23 +14,23 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 })
 
 .controller('ThankyouCtrl', function($scope, $ionicModal, $timeout, MyServices) {
-	
-	
+
+
     var parcelsuccess = function(data, status) {
         console.log("order parcel");
         console.log(data);
         $scope.parcel = data.Data[0];
     }
-	
-	var transactionsuccess = function (data, status) {
-		$scope.transaction = data.Data[0];
-	}
+
+    var transactionsuccess = function(data, status) {
+        $scope.transaction = data.Data[0];
+    }
 
     var booksuccess = function(data, status) {
         console.log(data);
         $scope.book = data.Data.Data[0];
         MyServices.orderitems().success(parcelsuccess);
-		MyServices.getTransactionStatus().success(transactionsuccess);
+        MyServices.getTransactionStatus().success(transactionsuccess);
     }
     MyServices.getparcelsummary().success(booksuccess);
 
@@ -119,7 +119,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
             return false;
         }
         pinnum++;
-        MyServices.getpincode(pin1, pinnum,pincodesucess);
+        MyServices.getpincode(pin1, pinnum, pincodesucess);
         //        $ionicLoading.show({
         //            template: 'Please wait...'
         //        });
@@ -377,16 +377,16 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     $scope.parcel = [];
     //Validations
     $scope.allvalidation = [];
-	$scope.agree = true;
+    $scope.agree = true;
 
-	
-	$scope.iagree = function () {
-		if($scope.agree == false)
-			$scope.agree = true;
-		else
-			$scope.agree = false;
-		
-	}
+
+    $scope.iagree = function() {
+        if ($scope.agree == false)
+            $scope.agree = true;
+        else
+            $scope.agree = false;
+
+    }
 
     // PAYMENT GETWAY
     var stopinterval = 0;
@@ -411,21 +411,13 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log(data.Data);
         if (data.Data == '') {
             console.log("Do nothing");
-<<<<<<< HEAD
             var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
                 template: 'Error In Payment Getway mechanism'
             });
             $interval.cancel(stopinterval);
             ref.close();
-=======
-//			 var alertPopup = $ionicPopup.alert({
-//                title: 'MyPacco',
-//                template: 'Error In Payment Getway mechanism'
-//            });
-//			$interval.cancel(stopinterval);
-//			ref.close();
->>>>>>> origin/master
+
         } else {
             if (data.Data[0].TransactionMessage == "Transaction Successful" && data.Data[0].TransactionStatus == "SUCCESS") {
                 ref.close();
