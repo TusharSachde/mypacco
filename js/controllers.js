@@ -105,6 +105,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     };
     MyServices.getcountrylist().success(contsucess);
 
+    var texttimelag=500;
     var pinnum = 0;
     var pincodesucess = function(data, num) {
         if (num == pinnum) {
@@ -117,7 +118,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     var pin1 = $scope.datasearch;
     var pinsearchstart = function() {
         var d = new Date();
-        var newlasttime = d.getTime() - 990;
+        var newlasttime = d.getTime() - texttimelag+10;
         if (newlasttime > lasttime) {
             //$timeout.cancel(pinsearchstart);
             //console.log("AJAX CALL");
@@ -138,7 +139,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         var d = new Date();
         lasttime = d.getTime();
 
-        $timeout(pinsearchstart, 1000);
+        $timeout(pinsearchstart, texttimelag);
 
         //        $ionicLoading.show({
         //            template: 'Please wait...'
