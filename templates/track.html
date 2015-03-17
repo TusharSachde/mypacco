@@ -5,10 +5,45 @@
                 <p>MYPACCO Transaction ID or Courier Tracking Number</p>
             </div>
             <label class="item item-input">
-                <input type="text" required placeholder="AWB No./Transaction Id*">
+                <input type="text" required placeholder="AWB No./Transaction Id*" ng-model="transid">
             </label>
         </div>
 
-        <button class="button button-calm button-block" type="submit">Track Now</button>
+        <button class="button button-calm button-block" type="submit" ng-click="tracknow(transid)">Track Now</button>
+        
+        <div class="list border-round shadow-bottom" ng-if="tracked">
+                <label class="item item-input">
+                    <span class="input-label">Transaction Number : {{track.orderdetail.TransactionNum}} </span>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">AWB Number : {{track.orderdetail.Awp}}</span>
+                </label>
+            
+        <div class="row from-to">
+        <div class="col text-center">
+            
+            <h4>Order Status</h4>
+            <p>{{track.orderstatus[0].StatusName}}</p>
+            </div>
+        <div class="col">
+                
+            <h4>Date</h4>
+            <p>{{track.orderdetail.PickupDate}}</p>
+            </div>
+        <div class="col">
+                
+            <h4>Comment</h4>
+            <p>{{track.orderstatus[0].Comment}}</p>
+            </div>
+        </div>
+            </div>
+        
+        
+        <div class="list border-round shadow-bottom" ng-if="nottrack">
+            <div class="text-center">
+                <p>Sorry , No records found.Please try another number.</p>
+            </div>
+        </div>
+        
     </ion-content>
 </ion-view>

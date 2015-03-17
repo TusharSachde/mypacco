@@ -5,8 +5,30 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     $scope.about = true;
 })
 
-.controller('TrackCtrl', function($scope, $ionicModal, $timeout) {
+.controller('TrackCtrl', function($scope, $ionicModal, $timeout, MyServices, $location) {
+    //  DECLARATION
     $scope.about = true;
+    $scope.tracked = false;
+    $scope.nottrack = false;
+    
+    
+    //  TRACK TRANSATION ID
+    var tracksuccess = function(data, status){
+        console.log(data);
+        $scope.track = data.Data;
+        if(data.Data.msg=="Success"){
+            $scope.tracked = true;
+            $scope.nottrack = false;
+        }else{
+            $scope.nottrack = true;
+            $scope.tracked = false;
+        }
+    }
+    
+    $scope.tracknow = function (transid) {
+        MyServices.track(transid).success(tracksuccess);
+    }
+    
 })
 
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout) {

@@ -45,6 +45,19 @@ var myservices = angular.module('myservices', [])
             })
         },
 
+        track: function(transid) {
+            return $http({
+                url: adminurl + "track",
+                method: "POST",
+                data: {
+                    "AppId":"46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token":"1234",
+//                    "Data":{"transid":"1415950341"}
+                    "Data":{"transid":transid}
+                }
+            })
+        },
+
         getcategory: function() {
             return $http({
                 url: adminurl + "categorylist",
