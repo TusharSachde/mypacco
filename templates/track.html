@@ -12,36 +12,31 @@
         <button class="button button-calm button-block" type="submit" ng-click="tracknow(transid)">Track Now</button>
         
         <div class="list border-round shadow-bottom" ng-if="tracked">
+               <div class="text-center">
+                <p>Information</p>
+            </div>
+               
                 <label class="item item-input">
-                    <span class="input-label">Transaction Number : {{track.orderdetail.TransactionNum}} </span>
+                    <span class="input-label">Transaction Number :</span>{{track.orderdetail.TransactionNum}}
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">AWB Number : {{track.orderdetail.Awp}}</span>
+                    <span class="input-label">AWB Number :</span>{{track.orderdetail.Awp}}
                 </label>
-            
-        <div class="row from-to">
-        <div class="col text-center">
-            
-            <h4>Order Status</h4>
-            <p>{{track.orderstatus[0].StatusName}}</p>
-            </div>
-        <div class="col">
-                
-            <h4>Date</h4>
-            <p>{{track.orderdetail.PickupDate}}</p>
-            </div>
-        <div class="col">
-                
-            <h4>Comment</h4>
-            <p>{{track.orderstatus[0].Comment}}</p>
-            </div>
-        </div>
+                <label class="item item-input">
+                    <span class="input-label">Order Status :</span>{{track.orderstatus[0].StatusName}}
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Date :</span>{{track.orderdetail.PickupDate}}
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Comment :</span>{{track.orderstatus[0].Comment}}
+                </label>
             </div>
         
         
-        <div class="list border-round shadow-bottom" ng-if="nottrack">
+        <div class="list border-round" ng-if="nottrack">
             <div class="text-center">
-                <p>Sorry , No records found.Please try another number.</p>
+                <p>Sorry, No records found. Please try another number.</p>
             </div>
         </div>
         
