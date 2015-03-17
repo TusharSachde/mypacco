@@ -246,18 +246,18 @@ var myservices = angular.module('myservices', [])
                             "OrderDetailId": $.jStorage.get("orderid"),
                             "FromCompany": book.FromCompany,
                             "ToCompany": book.ToCompany,
-                            "FromName": book.FromName,
-                            "ToName": book.ToName,
-                            "FromMobile": book.FromMobile,
-                            "ToMobile": book.ToMobile,
-                            "FromEmail": book.FromEmail,
-                            "ToEmail": book.ToEmail,
-                            "FromAddress1": book.FromAddress1,
-                            "ToAddress1": book.ToAddress1,
-                            "FromAddress2": book.FromAddress2,
-                            "ToAddress2": book.ToAddress2,
-                            "FromLandmark": book.FromLandmark,
-                            "ToLandmark": book.ToLandmark,
+                            "FromName": book.PF_Name,
+                            "ToName": book.DT_Name,
+                            "FromMobile": book.PF_Telephone,
+                            "ToMobile": book.DT_Telephone,
+                            "FromEmail": book.PF_Email,
+                            "ToEmail": book.DT_Email,
+                            "FromAddress1": book.PF_Add1,
+                            "ToAddress1": book.DT_Add1,
+                            "FromAddress2": book.PF_Add2,
+                            "ToAddress2": book.DT_Add2,
+                            "FromLandmark": book.PF_Landmark,
+                            "ToLandmark": book.DT_Landmark,
 //                            "FromSuburb": "dsf",
 //                            "ToSuburb": "sdf",
 //                            "fcity": "Ahmedabad",
@@ -529,8 +529,19 @@ var myservices = angular.module('myservices', [])
             })
         },
 
+        flushorderid: function() {
+            $.jStorage.flush("orderid");
+        },
+
+        flushorder: function() {
+            $.jStorage.flush("order");
+        },
+
+        setorderid: function(data) {
+            $.jStorage.set("orderid", data);
+        },
+
         fincalpinjsrotage: function(data) {
-			console.log(data);
             $.jStorage.set("order", data);
         },
         getjstorage: function(data) {

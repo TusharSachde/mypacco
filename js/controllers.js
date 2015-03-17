@@ -13,7 +13,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
 })
 
-.controller('ThankyouCtrl', function($scope, $ionicModal, $timeout, MyServices) {
+.controller('ThankyouCtrl', function($scope, $ionicModal, $timeout, MyServices, $location) {
 
 
     var parcelsuccess = function(data, status) {
@@ -33,6 +33,12 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         MyServices.getTransactionStatus().success(transactionsuccess);
     }
     MyServices.getparcelsummary().success(booksuccess);
+	
+	$scope.bookanother = function () {
+		MyServices.flushorder();
+		MyServices.flushorderid();
+		$location.url("app/home");
+	}
 
 })
 
@@ -238,8 +244,8 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     var ordersuccess = function(data, status) {
         console.log(data);
         if (data.IsSuccess == true) {
+			MyServices.setorderid(data.Data);
             $location.url("/app/home/details/quotes");
-            $.jStorage.set("orderid", data.Data);
         } else {
             var alertPopup = $ionicPopup.alert({
                 title: 'MyPacco',
@@ -518,25 +524,25 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     $scope.savebook = function(book) {
 
         $scope.allvalidation = [{
-            field: $scope.book.FromName,
+            field: $scope.book.PF_Name,
             validation: ""
         }, {
-            field: $scope.book.FromMobile,
+            field: $scope.book.PF_Telephone,
             validation: ""
         }, {
-            field: $scope.book.FromEmail,
+            field: $scope.book.PF_Email,
             validation: ""
         }, {
-            field: $scope.book.FromAddress1,
+            field: $scope.book.PF_Add1,
             validation: ""
         }, {
-            field: $scope.book.ToName,
+            field: $scope.book.DT_Name,
             validation: ""
         }, {
-            field: $scope.book.ToMobile,
+            field: $scope.book.DT_Telephone,
             validation: ""
         }, {
-            field: $scope.book.ToAddress1,
+            field: $scope.book.DT_Add1,
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
