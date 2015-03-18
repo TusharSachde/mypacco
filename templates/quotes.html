@@ -4,11 +4,11 @@
         <div class="list border-round shadow-bottom">
             <div class="text-center">
                 <h4>Comparative Quotes</h4>
-                <p class="small">We found {{quotes.length}} Services from {{quotes[0].CurrencySymbol}} {{quotes[0].TotalAmount}} onwards.
+                <p class="small">We found {{quotes.length}} Services from {{item[0].CurrencySymbol}} {{item[0].TotalAmount}} onwards.
                     <br>Select anyone from below and press book now.</p>
             </div>
 
-            <div ng-repeat="quote in quotes" class="info-holder">
+            <div ng-repeat="quote in quotes | orderBy:'TotalAmount'" class="info-holder">
                 <label class="item item-radio" ng-click="radiockick(quote);">
                     <input type="radio" name="group">
                     <div class="item-thumbnail-left item-content item-text-wrap">
