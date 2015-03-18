@@ -10,54 +10,44 @@
         </div>
 
         <button class="button button-calm button-block" type="submit" ng-click="tracknow(transid)">Track Now</button>
-        
-        <div class="list border-round shadow-bottom" ng-if="tracked">
-               <div class="text-center">
-                <p>Information</p>
-            </div>
-               
-                <label class="item item-input">
-                    <span class="input-label">Transaction Number :</span>{{track.orderdetail.TransactionNum}}
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">AWB Number :</span>{{track.orderdetail.Awp}}
-                </label>
-<!--
-                <label class="item item-input">
-                    <span class="input-label">Order Status :</span>{{track.orderstatus[0].StatusName}}
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Date :</span>{{track.orderstatus[0].osDate}}
-                </label>
 
-                <label class="item item-input">
-                    <span class="input-label">Comment :</span>{{track.orderstatus[0].Comment}}
-                </label>
-            -->
-           <div class="card">
+        <div class="list border-round shadow-bottom" ng-if="tracked">
+            <div class="text-center">
+                <strong>Information</strong>
+            </div>
+
+            <label class="item item-input">
+                <span class="input-label">Transaction Number :</span>{{track.orderdetail.TransactionNum}}
+            </label>
+            <label class="item item-input">
+                <span class="input-label">AWB Number :</span>{{track.orderdetail.Awp}}
+            </label>
+            <div class="card">
 
                 <div class="row">
-                  <div class="col"><strong>Order Status</strong></div>
-                  <div class="col"><strong>Order Date</strong></div>
-                  <div class="col"><strong>Comment</strong></div>
+                    <div class="col"><strong>Order Status</strong>
+                    </div>
+                    <div class="col"><strong>Order Date</strong>
+                    </div>
+                    <div class="col"><strong>Comment</strong>
+                    </div>
                 </div>
                 <div class="row" ng-repeat="order in track.orderstatus">
-                  <div class="col">{{order.StatusName}}</div>
-                  <div class="col">{{order.osDate|mydate}}</div>
-                  <div class="col">{{order.Comment}}</div>
+                    <div class="col">{{order.StatusName}}</div>
+                    <div class="col">{{order.osDate|mydate}}</div>
+                    <div class="col">{{order.Comment}}</div>
                 </div>
-<!--            1415227380 -->
             </div>
-                
-            
-            </div>
-        
-        
+
+
+        </div>
+
+
         <div class="list border-round" ng-if="nottrack">
             <div class="text-center">
                 <p>Sorry, No records found. Please try another number.</p>
             </div>
         </div>
-        
+
     </ion-content>
 </ion-view>

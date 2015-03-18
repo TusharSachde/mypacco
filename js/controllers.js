@@ -348,7 +348,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     }
 })
 
-.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout, MyServices, $ionicPopup) {
+.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout, MyServices, $ionicPopup, $filter) {
 
     $scope.quotes = [];
     $scope.quote = [];
@@ -366,8 +366,10 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     // GET SERVICES
     var servicesuccess = function(data, status) {
         console.log(data);
-        
         $scope.quotes = data.Data;
+        $scope.item = $filter('orderBy')($scope.quotes, "TotalAmount");
+        console.log("item");
+        console.log($scope.item);
         $ionicLoading.hide();
     }
     MyServices.availableservices().success(servicesuccess);
