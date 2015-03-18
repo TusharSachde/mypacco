@@ -35,9 +35,10 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
 
 })
 
-.controller('ThankyouCtrl', function($scope, $ionicModal, $timeout, MyServices, $location) {
+.controller('ThankyouCtrl', function($scope, $ionicModal, $timeout, MyServices, $location,$ionicHistory) {
 
 
+    $ionicHistory.clearHistory();
     var parcelsuccess = function(data, status) {
         console.log("order parcel");
         console.log(data);
@@ -347,7 +348,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     }
 })
 
-.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout, MyServices, $ionicPopup, $filter) {
+.controller('QuoteCtrl', function($scope, $stateParams, $ionicModal, $location, $ionicLoading, $timeout, MyServices, $ionicPopup) {
 
     $scope.quotes = [];
     $scope.quote = [];
@@ -365,10 +366,8 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
     // GET SERVICES
     var servicesuccess = function(data, status) {
         console.log(data);
+        
         $scope.quotes = data.Data;
-        $scope.item = $filter('orderBy')($scope.quotes, "TotalAmount");
-        console.log("item");
-        console.log($scope.item);
         $ionicLoading.hide();
     }
     MyServices.availableservices().success(servicesuccess);
@@ -474,20 +473,18 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
             if (data.Data[0].TransactionMessage == "Transaction Successful" && data.Data[0].TransactionStatus == "SUCCESS") {
                 ref.close();
                 $interval.cancel(stopinterval);
-                $location.url("/app/home/details/quotes/book/summary/thankyou");
+                $location.url("/app/home/details/quotes/book/summary/thankyou")
                 //				var alertPopup = $ionicPopup.alert({
                 //					title: 'MyPacco',
                 //					template: 'Transaction Successful'
                 //				});
             } else {
-//                ref.close();
-//                $interval.cancel(stopinterval);
-//                var alertPopup = $ionicPopup.alert({
-//                    title: 'Transaction Error',
-//                    template: data.Data[0].TransactionMessage
-//                });
-                console.log("transaction error");
-                console.log(data.Data[0].TransactionMessage);
+                ref.close();
+                $interval.cancel(stopinterval);
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Transaction Error',
+                    template: data.Data[0].TransactionMessage
+                });
             }
 
 
