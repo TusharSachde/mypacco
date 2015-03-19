@@ -432,43 +432,93 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         console.log($scope.jstore);
         if($scope.jstore.parceltype == "1")
         {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Information',
-                template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para + '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + ' Kg <br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
-                buttons: [{
-                    text: 'Ok',
-                    type: 'button-calm',
-                }]
-            });
+            if(!quote.minchrgwt && quote.minchrgwt == 0)
+                {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para + 
+                        ' <br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }else{
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para + 
+                        '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + 
+                        ' <br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }
         }else{
             if(quote.volwt)
             {
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Information',
-                    template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
-                    '<br><strong>Volumetric Weight &nbsp: </strong>' + quote.volwt + $scope.jstore.para + 
-                    '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + 
-                    '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
-                    '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
-                    '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
-                    buttons: [{
-                        text: 'Ok',
-                        type: 'button-calm',
-                    }]
-                });
+                if(!quote.minchrgwt && quote.minchrgwt == 0)
+                {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
+                        '<br><strong>Volumetric Weight &nbsp: </strong>' + quote.volwt + $scope.jstore.para + 
+                        '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }else{
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
+                        '<br><strong>Volumetric Weight &nbsp: </strong>' + quote.volwt + $scope.jstore.para + 
+                        '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + 
+                        '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }
             }else{
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Information',
-                    template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
-                    '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + 
-                    '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
-                    '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
-                    '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
-                    buttons: [{
-                        text: 'Ok',
-                        type: 'button-calm',
-                    }]
-                });
+                if(!quote.minchrgwt && quote.minchrgwt == 0)
+                {
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
+                        '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }else{
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Information',
+                        template: '<strong>Actual Weight&nbsp: </strong>' + $scope.jstore.weight + $scope.jstore.para +
+                        '<br><strong>Min. Chargable Weight: </strong>' + quote.minchrgwt + $scope.jstore.para + 
+                        '<br><strong>Amount: </strong>' + quote.CurrencySymbol + quote.ActualAmount + 
+                        '<br><strong>S.T: </strong>' + quote.CurrencySymbol +  quote.ServiceTax + 
+                        '<br><strong>Total: </strong>' + quote.CurrencySymbol + quote.TotalAmount,
+                        buttons: [{
+                            text: 'Ok',
+                            type: 'button-calm',
+                        }]
+                    });
+                }
             }
         }
         alertPopup.then(function(res) {});
