@@ -40,7 +40,7 @@
 }
 .button-bar .button.activated,
 .button.checked {
-    border-bottom: 3px solid #E27721;
+    border-bottom: 6px solid #E27721;
 }
 .shadow-bottom {
     -webkit-box-shadow: 0px 2px 0px 0px #ccc;
