@@ -605,7 +605,7 @@ angular.module('starter.controllers', ['myservices', 'base64', 'ionic.rating'])
         var orderid = $base64.encode($.jStorage.get("orderid"));
         orderid = orderid.substr(0, orderid.length - 2);
         var abc = window.location.origin + window.location.pathname + "success.html";
-        ref = window.open('http://uat1.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
+        ref = window.open('http://www.mypacco.com/mobile/payment/' + orderid, '_blank', 'location=yes');
         stopinterval = $interval(callAtIntervalOrder, 2000);
         ref.addEventListener('exit', function(event) {
             console.log("on exit");

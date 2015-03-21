@@ -160,7 +160,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             return "http://www.mypacco.com/images/VendorLogos/campassador.png";
             //                            return "http://localhost/sergybackend/assets/img/default.jpg";
         } else {
-            return "http://uat1.mypacco.com/images/VendorLogos/" + input;
+            return "http://www.mypacco.com/images/VendorLogos/" + input;
             //                        return "http://localhost/sergybackend/uploads/" + input;
         }
     };
