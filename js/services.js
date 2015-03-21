@@ -1,4 +1,4 @@
-var adminurl = "http://uat1.mypacco.com/mobile/";
+var adminurl = "http://www.mypacco.com/mobile/";
 
 var myservices = angular.module('myservices', [])
 
@@ -29,7 +29,7 @@ var myservices = angular.module('myservices', [])
                     }
                 }
             }).success(function(data) {
-                callback(data,num); 
+                callback(data,num);
             });
         },
 
@@ -196,7 +196,7 @@ var myservices = angular.module('myservices', [])
         },
 
         addorderservice: function(service) {
-            
+
             return $http({
                 url: adminurl + "addorderservice",
                 method: "POST",
@@ -502,7 +502,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        
+
         gopayment: function(id) {
             return $http({
                 url: adminurl + "payment/" + id,
