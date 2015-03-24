@@ -10,7 +10,7 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
 
-    <preference name="phonegap-version"/>
+    <preference name="phonegap-version" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="target-device" value="universal" />
@@ -41,7 +41,7 @@
     <gap:splash src="screen/screen-port-ldpi.png" gap:platform="android" density="port-ldpi" />
     <gap:splash src="screen/screen-port-mdpi.png" gap:platform="android" density="port-mdpi" />
     <gap:splash src="screen/screen-port-xhdpi.png" gap:platform="android" density="port-xhdpi" />
-    
+
     <gap:splash src="screen/splash-iphone.png" />
 
     <gap:splash src="screen/splash-iphone.png" gap:platform="ios" width="320" height="480" />
@@ -58,7 +58,7 @@
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <gap:plugin name="org.apache.cordova.statusbar" />
+    <!--<gap:plugin name="org.apache.cordova.statusbar" />-->
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
 

@@ -18,9 +18,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
-        if (device.platform == 'android' && window.StatusBar) {
-            StatusBar.backgroundColorByHexString("#C0651C");
-        }
+//        if (device.platform == 'Android' && window.StatusBar) {
+//            StatusBar.backgroundColorByHexString("#C0651C");
+//        }
     });
 
 })
