@@ -10,7 +10,7 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
 
-    <preference name="phonegap-version"/>
+    <preference name="phonegap-version" value="4.0.0" />
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="target-device" value="universal" />
@@ -58,6 +58,7 @@
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <gap:plugin name="org.apache.cordova.statusbar" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
 
