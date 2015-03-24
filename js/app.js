@@ -18,6 +18,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
+        if (device.platform == 'android' && window.StatusBar) {
+            StatusBar.backgroundColorByHexString("#C0651C");
+        }
     });
 
 })
@@ -86,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.thankyou', {
         url: "/home/details/quotes/book/summary/thankyou",
         views: {
@@ -165,19 +168,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     };
 })
-.filter("mydate",function () {
-    return function(input)
-    {
-        var myDate=input;
-        myDate=myDate.split(" ");
-        myDate=myDate[0].split("-");
-        var newDate=myDate[1]+","+myDate[2]+","+myDate[0];
-        console.log(newDate);
-        var ddate=new Date(newDate);
-        console.log(ddate);
-        return (ddate.toDateString());
-    }
-});
+    .filter("mydate", function() {
+        return function(input) {
+            var myDate = input;
+            myDate = myDate.split(" ");
+            myDate = myDate[0].split("-");
+            var newDate = myDate[1] + "," + myDate[2] + "," + myDate[0];
+            console.log(newDate);
+            var ddate = new Date(newDate);
+            console.log(ddate);
+            return (ddate.toDateString());
+        }
+    });
 
 var formvalidation = function(allvalidation) {
     var isvalid2 = true;
