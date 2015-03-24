@@ -10,7 +10,7 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
 
-    <preference name="phonegap-version" value="4.0.0" />
+    <preference name="phonegap-version"/>
     <preference name="orientation" value="portrait" />
     <preference name="fullscreen" value="false" />
     <preference name="target-device" value="universal" />
