@@ -232,3 +232,11 @@ ul.rating li {
     z-index: 9;
 }
 .info-holder {position: relative;}
+
+.contactus .item-complex .item-content, .item-radio .item-content {
+  position: relative;
+  z-index: 2;
+  padding: 16px 49px;
+  border: none;
+  background-color: #fff;
+}
